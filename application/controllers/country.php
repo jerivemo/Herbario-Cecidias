@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Gall extends CI_Controller {
+class Country extends CI_Controller {
 
     /**
      * Galls Controller
@@ -8,28 +8,27 @@ class Gall extends CI_Controller {
     public function index()
     {
         $this->load->helper('url');
-        $this->load->model('gall_model');
+        $this->load->model('country_model');
 
-        $data['datos']=$this->gall_model->getGalls();
+        $data['datos']=$this->country_model->getCountries();
 
-        $this->load->view('admin/galls/head');
+        $this->load->view('admin/country/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/galls/view',$data);
-        $this->load->view('admin/galls/footer');
-        
+        $this->load->view('admin/country/view',$data);
+        $this->load->view('admin/country/footer');
     }
 
     public function view()
     {
         $this->load->helper('url');
-        $this->load->model('gall_model');
+        $this->load->model('country_model');
 
-        $data['datos']=$this->gall_model->getGalls();
+        $data['datos']=$this->country_model->getCountries();
 
-        $this->load->view('admin/galls/head');
+        $this->load->view('admin/locations/countries/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/galls/view',$data);
-        $this->load->view('admin/galls/footer');
+        $this->load->view('admin/locations/countries/view',$data);
+        $this->load->view('admin/locations/countries/footer');
 
     }
    

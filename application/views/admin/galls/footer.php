@@ -19,11 +19,7 @@
     
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-    <script>
-   
-
-    </script>
+    <script src="<?php echo base_url(); ?>tools/js/admin/gall.js"></script>
 </body>
 
 </html>
