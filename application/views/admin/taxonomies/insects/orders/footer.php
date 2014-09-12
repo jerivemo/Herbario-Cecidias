@@ -16,10 +16,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>/tools/js/sb-admin-2.js"></script>
-    
+
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="<?php echo base_url(); ?>tools/js/admin/country.js"></script>
+    <script src="<?php echo base_url(); ?>tools/js/admin/organismorder.js"></script>
     <script>
         var site_url ="<?php echo base_url(); ?>";
     </script>

@@ -1,14 +1,14 @@
 <div class="row" style="">      <!-- Form Name -->
       <legend> <a href="<?php echo base_url(); ?>index.php/Gall"> Galls</a></legend>
-     
+
       <div class="panel panel" style="width=100">
                         <div class="panel-heading">
-                       
+
                        <div class="row">
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                         </div>
-                        
-                        
+
+
                         <div id="divAdd" class="col-md-3">
 
                             <div class="input-group ">
@@ -35,9 +35,9 @@
                         <hr>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                             
+
                             <div class="table-responsive" style="width:480px">
-                                <table class="table table-striped table-bordered"  id="dataTables-example">
+                                <table class="table table-striped table-bordered"  id="dataTableGalls">
                                     <thead>
                                         <tr class="odd gradeX">
                                             <th>Name</th>
@@ -50,7 +50,7 @@
                                            foreach ($datos as $result => $row) {
                                               echo '<tr class="even gradeC">';
                                               echo '<td id=td_'.$row->idGall.'>' .$row->gallName. '</td>';
-                                              echo '<td id='.$row->idGall.' ><a id=edit_'.$row->idGall.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idGall.');"> Edit</a>  |  
+                                              echo '<td id='.$row->idGall.' ><a id=edit_'.$row->idGall.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idGall.');"> Edit</a>  |
                                                     <a class="Delete fa fa-trash-o" href="javascript:deleteGall('.$row->idGall.');" > Delete</a>
                                                     </tr>';
                                            }
@@ -86,3 +86,4 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+

@@ -1,14 +1,12 @@
 <div class="row" style="">      <!-- Form Name -->
       <legend> <a href="<?php echo base_url(); ?>index.php/Country">Countries</a></legend>
-     
+
       <div class="panel panel" style="width=100"
                         <div class="panel-heading">
-                       
+
                        <div class="row">
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                         </div>
-                        
-                        
                         <div id="divAdd" class="col-md-3">
 
                             <div class="input-group ">
@@ -31,7 +29,7 @@
                         <hr>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                             
+
                             <div class="table-responsive" style="width:480px">
                                 <table class="table table-striped table-bordered"  id="dataTableCountries">
                                     <thead>
@@ -46,8 +44,8 @@
                                            foreach ($datos as $result => $row) {
                                               echo '<tr class="even gradeC">';
                                               echo '<td id=td_'.$row->idCountry.'>' .$row->nameCountry. '</td>';
-                                              echo '<td id='.$row->idCountry.' ><a id=edit_'.$row->idCountry.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idCountry.');"> Edit</a>  |  
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteGall('.$row->idCountry.');" > Delete</a>
+                                              echo '<td id='.$row->idCountry.' ><a id=edit_'.$row->idCountry.' class="Edit fa fa-edit" href="javascript:editCountry('.$row->idCountry.');"> Edit</a>  |
+                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteCountry('.$row->idCountry.');" > Delete</a>
                                                     </tr>';
                                            }
                                            }

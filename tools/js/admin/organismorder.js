@@ -1,5 +1,5 @@
 $(document).ready(function() {
-        $('#dataTableCountries').dataTable();
+        $('#dataTableOrders').dataTable();
 
             $('#divAdd').hide();
     });
@@ -13,41 +13,41 @@ $(document).ready(function() {
     }
 
     /**
-     * [addCountry Add a new Country with ajax]
+     * [addOrder Add a new Order with ajax]
      */
-    function addCountry(){
+    function addOrder(){
       $( "#alertSuccess" ).addClass( "hide" );
       $( "#alertDanger" ).addClass( "hide" );
-      var data = $('#nameCountry').val();
+      var data = $('#nameOrder').val();
       if(data == "" || data == " " || data == " " || data.indexOf(" ") == 0)
       {
          $('#alertDanger').html('<strong>Error!</strong>The name field is required.');
          $( "#divAdd" ).addClass( "has-error" ,0);
-         $('#alertDanger').removeClass( "hide",0,callbackErrorAddCountry());
-         $('#nameCountry').focus();
+         $('#alertDanger').removeClass( "hide",0,callbackErrorAddOrder());
+         $('#nameOrder').focus();
       }else
       {
 
           $.ajax({
-            url: site_url+'index.php/Country/createCountry/'+data,
+            url: site_url+'index.php/OrganismOrder/createOrganismOrder/'+data,
             type:'POST',
             dataType: "json",
             success: function(data){
                     if(data.result)
                     {
-                        $("#dataTableCountries").dataTable().fnDestroy();
-                        $('#alertSuccess').removeClass( "hide",0,callbackAddCountry());
+                        $("#dataTableOrders").dataTable().fnDestroy();
+                        $('#alertSuccess').removeClass( "hide",0,callbackAddOrder());
                         var fila = '<tr class="even gradeC">';
-                        fila+='<td id="td_'+data.id+'">'+$('#nameCountry').val()+'</td>';
+                        fila+='<td id="td_'+data.id+'">'+$('#nameOrder').val()+'</td>';
                         fila+='<td id='+data.id+'><a class="Edit fa fa-edit" ';
-                        fila+= 'href="javascript:editCountry('+data.id+');"> Edit</a>  | <a class="Delete fa fa-trash-o" href="javascript:deleteCountry('+data.id+');" > Delete</a> </tr>';
-                        $('#dataTableCountries  > tbody:last').append(fila);
-                        $('#nameCountry').val("");
-                        $('#nameCountry').focus();
+                        fila+= 'href="javascript:editOrder('+data.id+');"> Edit</a>  | <a class="Delete fa fa-trash-o" href="javascript:deleteOrder('+data.id+');" > Delete</a> </tr>';
+                        $('#dataTableOrders  > tbody:last').append(fila);
+                        $('#nameOrder').val("");
+                        $('#nameOrder').focus();
 
-                        $("#dataTableCountries ").dataTable();
+                        $("#dataTableOrders ").dataTable();
                     }else{
-                        $('#alertDanger').removeClass( "hide",0,callbackAddCountry());
+                        $('#alertDanger').removeClass( "hide",0,callbackAddOrder());
                         $( "#divAdd" ).addClass( "has-error" ,0);
                     }
                 } // End of success function of ajax form
@@ -57,31 +57,31 @@ $(document).ready(function() {
 
 
 
-     function editCountryAux(id){
-      var data = $('#editCountryName').val();
+     function editOrderAux(id){
+      var data = $('#editOrderName').val();
       if(data == "" || data == " " || data == " " || data.indexOf(" ") == 0)
       {
           $('#alertDangerEdit').html('<strong>Error!</strong>The name field is required.');
           $('#editContent' ).addClass( "has-error" ,0);
-          $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditCountry());
-          $('#editCountryName').focus();
+          $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditOrder());
+          $('#editOrderName').focus();
       }else{
           $.ajax({
-                url: site_url+'index.php/Country/editCountry/'+id+'/'+data,
+                url: site_url+'index.php/OrganismOrder/editOrganismOrder/'+id+'/'+data,
                 type:'POST',
                 success: function(output_string){
                         if(output_string==true)
                         {
-                            $("#dataTableCountries ").dataTable().fnDestroy();
-                            $('#td_'+id).html($('#editCountryName').val());
+                            $("#dataTableOrders ").dataTable().fnDestroy();
+                            $('#td_'+id).html($('#editOrderName').val());
                             $('#myModalLabel').text("Information - Successfull");
-                            $('#bodyModal').html("<p>Country:"+$('#editCountryName').val()+" successfully edited.</p>");
+                            $('#bodyModal').html("<p>Order:"+$('#editOrderName').val()+" successfully edited.</p>");
                             $("#butonsModal" ).html( '<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>' );
-                            $("#dataTableCountries ").dataTable();
+                            $("#dataTableOrders ").dataTable();
 
 
                         }else{
-                            $('#alertDangerEdit').removeClass( "hide",0,callbackEditCountry());
+                            $('#alertDangerEdit').removeClass( "hide",0,callbackEditOrder());
                             $( "#editContent" ).addClass( "has-error" ,0);
 
                         }
@@ -91,41 +91,41 @@ $(document).ready(function() {
 
     }
 
-    function editCountry(id){
-        $('#myModalLabel').text("Edit Country: "+$('#td_'+id).html());
-        $('#bodyModal').html('<div id="editContent"><input id="editCountryName" required type="text" class="form-control" placeholder="Name" value="'+$('#td_'+id).html()+'"> <br><div id="alertDangerEdit" class="hide alert alert-danger alert-dismissible" style="padding: 6px;margin-bottom: 0px;" role="alert"> <strong>Error!</strong> Already exists a entry with this name.</div></div>');
-        $('#butonsModal').html( '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button><button type="button" class="btn btn-success" onclick="editCountryAux('+id+')">Update</button>');
+    function editOrder(id){
+        $('#myModalLabel').text("Edit Order: "+$('#td_'+id).html());
+        $('#bodyModal').html('<div id="editContent"><input id="editOrderName" required type="text" class="form-control" placeholder="Name" value="'+$('#td_'+id).html()+'"> <br><div id="alertDangerEdit" class="hide alert alert-danger alert-dismissible" style="padding: 6px;margin-bottom: 0px;" role="alert"> <strong>Error!</strong> Already exists a entry with this name.</div></div>');
+        $('#butonsModal').html( '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button><button type="button" class="btn btn-success" onclick="editOrderAux('+id+')">Update</button>');
         $('#myModal').modal('show');
 
     }
 
-    //Delete a Country
-    function deleteCountry(id){
+    //Delete a Order
+    function deleteOrder(id){
 
-        $('#myModalLabel').text("Delete Country: "+$('#td_'+id).html());
+        $('#myModalLabel').text("Delete Order: "+$('#td_'+id).html());
         $('#bodyModal').html("<p>Are you sure you want to delete this record?</p>");
-        $('#butonsModal' ).html( '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button><button type="button" class="btn btn-danger" onclick="deleteCountryAux('+id+')">Delete</button>');
+        $('#butonsModal' ).html( '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button><button type="button" class="btn btn-danger" onclick="deleteOrderAux('+id+')">Delete</button>');
         $('#myModal').modal('show');
 
     }
 
-    function deleteCountryAux(id)
+    function deleteOrderAux(id)
     {
         var name = $('#td_'+id).html();
         $.ajax({
-          url: site_url+'index.php/Country/deleteCountry/'+id,
+          url: site_url+'index.php/OrganismOrder/deleteOrganismOrder/'+id,
           type:'POST',
           success: function(output_string){
                   if(output_string==true){
-                    $("#dataTableCountries").dataTable().fnDestroy();
+                    $("#dataTableOrders").dataTable().fnDestroy();
                     $('#myModalLabel').text("Successfull");
-                    $('#bodyModal').html("<p>Country: "+name+" successfully deleted.</p>");
+                    $('#bodyModal').html("<p>Order: "+name+" successfully deleted.</p>");
                     $( "#butonsModal" ).html( '<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>' );
                     $('#'+id+'').parents("tr").remove();
-                    $("#dataTableCountries").dataTable();
+                    $("#dataTableOrders").dataTable();
                   }else{
                     $('#myModalLabel').text("Error");
-                    $('#bodyModal').html("<p>Unable to delete this record, check if Country:"+name+" is used by the application.</p>");
+                    $('#bodyModal').html("<p>Unable to delete this record, check if Order:"+name+" is used by the application.</p>");
                     $( "#butonsModal" ).html( '<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>' );
                     $('#myModal').modal('show');
                   }
@@ -133,7 +133,7 @@ $(document).ready(function() {
           });
     }
 
-    function callbackErrorAddCountry() {
+    function callbackErrorAddOrder() {
       setTimeout(function() {
         $( '#alertDanger' ).addClass( "hide" );
         $('#divAdd').removeClass( "has-error");
@@ -143,7 +143,7 @@ $(document).ready(function() {
       }, 4000 );
     }
 
-    function callbackErrorEditCountry() {
+    function callbackErrorEditOrder() {
       setTimeout(function() {
         $( '#alertDangerEdit' ).addClass( "hide" );
         $('#editContent').removeClass( "has-error");
@@ -151,7 +151,7 @@ $(document).ready(function() {
       }, 4000 );
     }
 
-    function callbackEditCountry() {
+    function callbackEditOrder() {
       setTimeout(function() {
         $( '#alertDangerEdit' ).addClass( "hide" );
         $('#editContent').removeClass( "has-error");
@@ -159,7 +159,7 @@ $(document).ready(function() {
       }, 4000 );
     }
 
-    function callbackAddCountry() {
+    function callbackAddOrder() {
       setTimeout(function() {
         $( "#alertSuccess" ).addClass( "hide" );
         $( "#alertDanger" ).addClass( "hide" );

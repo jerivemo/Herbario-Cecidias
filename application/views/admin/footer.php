@@ -17,12 +17,19 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>/tools/js/sb-admin-2.js"></script>
     
-    <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <?php 
+        if(isset($links))
+        {
+
+
+        foreach ($links as $link) {
+            echo '<script src='.base_url().$link.'></script>';
+        }
+        }
+    ?>
 
     <script>
-   
-
+        var site_url ="<?php echo base_url(); ?>";
     </script>
 </body>
 

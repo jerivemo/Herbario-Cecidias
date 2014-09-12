@@ -3,7 +3,7 @@
 class Country extends CI_Controller {
 
     /**
-     * Galls Controller
+     * Country Controller
      */
     public function index()
     {
@@ -12,10 +12,10 @@ class Country extends CI_Controller {
 
         $data['datos']=$this->country_model->getCountries();
 
-        $this->load->view('admin/country/head');
+        $this->load->view('admin/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/country/view',$data);
-        $this->load->view('admin/country/footer');
+        $this->load->view('admin/locations/countries/view',$data);
+        $this->load->view('admin/locations/countries/footer');
     }
 
     public function view()
@@ -25,51 +25,51 @@ class Country extends CI_Controller {
 
         $data['datos']=$this->country_model->getCountries();
 
-        $this->load->view('admin/locations/countries/head');
+        $this->load->view('admin/head');
         $this->load->view('admin/header');
         $this->load->view('admin/locations/countries/view',$data);
         $this->load->view('admin/locations/countries/footer');
 
     }
-   
-    //create a new gall
-    function createGall($name){ 
-                     
+
+    //create a new Country
+    function createCountry($name){
+
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('gall_model');
-                    $result=$this->gall_model->addGall($name);
+                    $this->load->model('country_model');
+                    $result=$this->country_model->addCountry($name);
                     $json = json_encode($result);
                     echo $json;
             }
     }
 
-    //Edit the Gall Name. 
-    public function editGall($id,$name)
+    //Edit the Country Name.
+    public function editCountry($id,$name)
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('gall_model');
-                    $result=$this->gall_model->editGall($id,$name);
+                    $this->load->model('country_model');
+                    $result=$this->country_model->editCountry($id,$name);
                     echo $result;
             }
 
     }
 
 
-    //Delete the Gall Name. 
-    public function deleteGall($id)
+    //Delete the Country Name.
+    public function deleteCountry($id)
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('gall_model');
-                    $result=$this->gall_model->deleteGall($id);
+                    $this->load->model('country_model');
+                    $result=$this->country_model->deleteCountry($id);
                     echo $result;
             }
 
@@ -78,6 +78,6 @@ class Country extends CI_Controller {
 
 }
 
-/* End of file gall.php */
-/* Location: ./application/controllers/gall.php */
+/* End of file Country.php */
+/* Location: ./application/controllers/Country.php */
 ?>

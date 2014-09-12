@@ -14,8 +14,8 @@
                 <a class="navbar-brand" href="index.html">Herbario Cecidias Admin </a>
             </div>
             <!-- /.navbar-header -->
-            
-            <!-- /.navbar-top-links LogOut--> 
+
+            <!-- /.navbar-top-links LogOut-->
             <ul class="nav navbar-top-links navbar-right">
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -41,23 +41,23 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            
+
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a class="active" href="#"><i class="fa fa-home fa-fw"></i>Home</a>
+                            <a  href="#"><i class="fa fa-home fa-fw"></i>Home</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-database fa-fw"></i>Collections</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>index.php/Gall/view"><i class="fa fa-archive fa-fw"></i>Galls</a>
+                            <a class="active" href="<?php echo base_url();?>index.php/Gall/view"><i class="fa fa-archive fa-fw"></i>Galls</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-road fa-fw"></i>Locations<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Countries</a>
+                                    <a href="<?php echo base_url();?>index.php/Country/view">Countries</a>
                                 </li>
                                 <li>
                                     <a href="#">States</a>
@@ -75,7 +75,7 @@
                                     <a href="#"><i class="fa fa-leaf"></i> Plants<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Families</a>
+                                            <a href="<?php echo base_url();?>index.php/Family/view">Families</a>
                                         </li>
                                         <li>
                                             <a href="#">Genders</a>
@@ -90,7 +90,7 @@
                                     <a href="#"><i class="fa fa-bug "></i> Insects<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Orders</a>
+                                            <a href="<?php echo base_url();?>index.php/OrganismOrder/view">Orders</a>
                                         </li>
                                         <li>
                                             <a href="#">Families</a>
@@ -104,12 +104,12 @@
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
-                                
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i>Collaborators</a>
+                            <a href="<?php echo base_url();?>index.php/Person/view"><i class="fa fa-users fa-fw"></i>Collaborators</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i>Users</a>

@@ -1,37 +1,43 @@
 <div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/Country">Countries</a></legend>
+      <legend> <a href="<?php echo base_url(); ?>index.php/Person"> Persons</a></legend>
 
-      <div class="panel panel" style="width=100"
+      <div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
                        <div class="row">
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                         </div>
+
+
                         <div id="divAdd" class="col-md-3">
 
                             <div class="input-group ">
-                               <input id="nameCountry" type="text" class="form-control" placeholder="Name" required>
+                               <input id="namePerson" type="text" class="form-control" placeholder="Name" required>
                                      <span class="input-group-btn">
-                                      <button id="addCountry" onclick="addCountry()"  class="btn btn-success" type="button">Add</button>
+                                      <button id="addPerson" onclick="addPerson()"  class="btn btn-success" type="button">Add</button>
                                      </span>
 
                             </div><!-- /input-group -->
                         </div>
                         <div id="alertSuccess" class="col-md-2 alert hide alert-success alert-dismissible" style="padding: 6px; margin-bottom: 0px;" role="alert">
-                          <strong>Successful!</strong> Country successfully added.
+                          <strong>Successful!</strong> Person successfully added.
                         </div>
 
                         <div id="alertDanger" class="col-md-3 hide alert alert-danger alert-dismissible" style="padding: 6px;margin-bottom: 0px;" role="alert">
                           <strong>Error!</strong> Already exists a entry with this name.
                         </div>
+
+
                        </div>
-                       </div>
+
+
+                        </div>
                         <hr>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
                             <div class="table-responsive" style="width:480px">
-                                <table class="table table-striped table-bordered"  id="dataTableCountries">
+                                <table class="table table-striped table-bordered"  id="dataTablePersons">
                                     <thead>
                                         <tr class="odd gradeX">
                                             <th>Name</th>
@@ -43,9 +49,9 @@
                                            if ($datos!=null){
                                            foreach ($datos as $result => $row) {
                                               echo '<tr class="even gradeC">';
-                                              echo '<td id=td_'.$row->idCountry.'>' .$row->nameCountry. '</td>';
-                                              echo '<td id='.$row->idCountry.' ><a id=edit_'.$row->idCountry.' class="Edit fa fa-edit" href="javascript:editCountry('.$row->idCountry.');"> Edit</a>  |
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteCountry('.$row->idCountry.');" > Delete</a>
+                                              echo '<td id=td_'.$row->idPerson.'>' .$row->personName. '</td>';
+                                              echo '<td id='.$row->idPerson.' ><a id=edit_'.$row->idPerson.' class="Edit fa fa-edit" href="javascript:editPerson('.$row->idPerson.');"> Edit</a>  |
+                                                    <a class="Delete fa fa-trash-o" href="javascript:deletePerson('.$row->idPerson.');" > Delete</a>
                                                     </tr>';
                                            }
                                            }
@@ -80,3 +86,4 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+
