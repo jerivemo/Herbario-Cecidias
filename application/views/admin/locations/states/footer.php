@@ -13,27 +13,26 @@
     <script src="<?php echo base_url(); ?>/tools/js/plugins/metisMenu/metisMenu.min.js"></script>
 
 
-   
-
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>/tools/js/sb-admin-2.js"></script>
     
-    <?php 
-        if(isset($links))
-        {
-
-
-        foreach ($links as $link) {
-            echo '<script src='.base_url().$link.'></script>';
-        }
-        }
-    ?>
+    <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>tools/js/admin/gall.js"></script>
+    
+    <script src="<?php echo base_url(); ?>/tools/js/bootstrap-combobox.js"></script>
 
     <script>
         var site_url ="<?php echo base_url(); ?>";
     </script>
+   
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#selectPrincipal').combobox({ id:'prueba'});
+  });
+</script>
+
 </body>
 
-</html>
-
+</html>s

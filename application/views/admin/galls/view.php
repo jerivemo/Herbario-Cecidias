@@ -5,12 +5,38 @@
                         <div class="panel-heading">
 
                        <div class="row">
+                            
+                 
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                         </div>
 
+                        <div class="col-md-2">
+                            <div class="input-group ">
+                              <select id="selectPrincipal" class="combobox form-control">
+                                <option></option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="NY">New York</option>
+                                <option value="MD">Maryland</option>
+                                <option value="VA">Virginia</option>
+                              </select>
+                           </div> 
+                          </div> 
+                          <div class="col-md-2">
+                            <div class="input-group ">
+                              <select  class="combobox form-control">
+                                <option ></option>
+                                <option id="selectPrincipal2" value="PA">Pennsylvania</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="NY">New York</option>
+                                <option value="MD">Maryland</option>
+                                <option value="VA">Virginia</option>
+                              </select>
+                           </div> 
+                          </div> 
+                          <div id="divAdd" class="col-md-3">
 
-                        <div id="divAdd" class="col-md-3">
-
+                             
                             <div class="input-group ">
                                <input id="nameGall" type="text" class="form-control" placeholder="Name" required>
                                      <span class="input-group-btn">

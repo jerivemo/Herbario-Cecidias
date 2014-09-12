@@ -40,6 +40,24 @@ class State_model extends  CI_Model {
          return false;
        }
    }
+   
+
+   function getStatesJoin(){
+//$this->db->select('*');
+ //   $this->db->from('state');
+  //  $this->db->join('country', 'state.idCountry = country.idCountry');
+   
+
+    $query =  $this->db->query('select * from state as s inner join country as c where s.idCountry=c.idCountry');
+    
+      if($query->num_rows() > 0){
+
+         return $query->result();
+      }else
+      {
+         return false;
+       }
+   }
 
    /**
     * [editState Edit information of a State]

@@ -20,10 +20,19 @@
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/admin/gall.js"></script>
+    
+    <script src="<?php echo base_url(); ?>/tools/js/bootstrap-combobox.js"></script>
+
     <script>
         var site_url ="<?php echo base_url(); ?>";
     </script>
+   
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#selectPrincipal').combobox({ id:'prueba'});
+  });
+</script>
+
 </body>
 
 </html>
-

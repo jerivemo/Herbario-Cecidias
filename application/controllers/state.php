@@ -1,74 +1,76 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Person extends CI_Controller {
+class State extends CI_Controller {
 
     /**
-     * Person Controller
+     * State Controller
      */
     public function index()
     {
         $this->load->helper('url');
-        $this->load->model('person_model');
+        $this->load->model('state_model');
 
-        $data['datos']=$this->person_model->getPersons();
+        $data['datos']=$this->state_model->getStates();
 
         $this->load->view('admin/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/persons/view',$data);
-        $this->load->view('admin/persons/footer');
+        $this->load->view('admin/states/view',$data);
+        $this->load->view('admin/states/footer');
     }
 
     public function view()
     {
         $this->load->helper('url');
-        $this->load->model('person_model');
+        $this->load->model('country_model');
+        $data['countries']=$this->country_model->getCountries();
 
-        $data['datos']=$this->person_model->getPersons();
+        $this->load->model('state_model');
+        $data['datos']=$this->state_model->getStatesJoin();
 
         $this->load->view('admin/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/persons/view',$data);
-        $this->load->view('admin/persons/footer');
+        $this->load->view('admin/locations/states/view',$data);
+        $this->load->view('admin/locations/states/footer');
 
     }
 
-    //create a new Person
-    function createPerson($name){
+    //create a new State
+    function createState($name){
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('person_model');
-                    $result=$this->person_model->addPerson($name);
+                    $this->load->model('state_model');
+                    $result=$this->state_model->addState($name);
                     $json = json_encode($result);
                     echo $json;
             }
     }
 
-    //Edit the Person Name.
-    public function editPerson($id,$name)
+    //Edit the State Name.
+    public function editState($id,$name)
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('person_model');
-                    $result=$this->person_model->editPerson($id,$name);
+                    $this->load->model('state_model');
+                    $result=$this->state_model->editState($id,$name);
                     echo $result;
             }
 
     }
 
 
-    //Delete the Person Name.
-    public function deletePerson($id)
+    //Delete the State Name.
+    public function deleteState($id)
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
-                    $this->load->model('person_model');
-                    $result=$this->person_model->deletePerson($id);
+                    $this->load->model('state_model');
+                    $result=$this->state_model->deleteState($id);
                     echo $result;
             }
 
@@ -77,6 +79,6 @@ class Person extends CI_Controller {
 
 }
 
-/* End of file Person.php */
-/* Location: ./application/controllers/Person.php */
+/* End of file State.php */
+/* Location: ./application/controllers/State.php */
 ?>
