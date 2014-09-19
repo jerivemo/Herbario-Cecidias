@@ -8,9 +8,15 @@ $(document).ready(function() {
      * [showAdd show Add Panel]
      */
     function showAdd(){
-          $('#divAdd').hide("slow");
+          if($('#divAdd').is(':visible'))
+          {
+            $('#divAdd').hide("slow");
+          }else if ($('#divAdd').is(':hidden')){
+
           $('#divAdd').show("slow");
+          }
     }
+
 
     /**
      * [addFamily Add a new Family with ajax]

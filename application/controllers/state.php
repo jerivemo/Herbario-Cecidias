@@ -8,14 +8,14 @@ class State extends CI_Controller {
     public function index()
     {
         $this->load->helper('url');
+        $this->load->model('country_model');
+        $data['countries']=$this->country_model->getCountries();
         $this->load->model('state_model');
-
-        $data['datos']=$this->state_model->getStates();
-
+        $data['datos']=$this->state_model->getStatesJoinCountries();
         $this->load->view('admin/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/states/view',$data);
-        $this->load->view('admin/states/footer');
+        $this->load->view('admin/locations/states/view',$data);
+        $this->load->view('admin/locations/states/footer');
     }
 
     public function view()
@@ -23,10 +23,8 @@ class State extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('country_model');
         $data['countries']=$this->country_model->getCountries();
-
         $this->load->model('state_model');
-        $data['datos']=$this->state_model->getStatesJoin();
-
+        $data['datos']=$this->state_model->getStatesJoinCountries();
         $this->load->view('admin/head');
         $this->load->view('admin/header');
         $this->load->view('admin/locations/states/view',$data);
@@ -35,27 +33,41 @@ class State extends CI_Controller {
     }
 
     //create a new State
-    function createState($name){
+    function createState($idCountry,$name){
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
                     $this->load->model('state_model');
-                    $result=$this->state_model->addState($name);
+                    $result=$this->state_model->addState($idCountry,$name);
                     $json = json_encode($result);
                     echo $json;
             }
     }
 
     //Edit the State Name.
-    public function editState($id,$name)
+    public function editState($id,$idCountry,$name)
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
                     $this->load->model('state_model');
-                    $result=$this->state_model->editState($id,$name);
+                    $result=$this->state_model->editState($id,$idCountry,$name);
+                    echo $result;
+            }
+
+    }
+
+        //Edit the State Name.
+    public function getStates()
+    {
+        if(!$this->input->is_ajax_request()){
+                  show_404();
+            }
+           else {   $idCountry = $this->input->post('idCountry');
+                    $this->load->model('state_model');
+                    $result=$this->state_model->getStates($idCountry);
                     echo $result;
             }
 

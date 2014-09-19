@@ -1,40 +1,43 @@
 <div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/Gall"> Galls</a></legend>
+      <legend> <a href="<?php echo base_url(); ?>index.php/State"> States</a></legend>
 
       <div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
                        <div class="row">
-                            
-                 
+
+
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                         </div>
-
+                        <div id="divAdd">
                         <div class="col-md-2">
                             <div class="input-group ">
-                              <select id="selectPrincipal" class="combobox form-control">
+                              <select id="selectCountries" class="combobox form-control" placeholder="ss">
                                 <option></option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="NY">New York</option>
-                                <option value="MD">Maryland</option>
-                                <option value="VA">Virginia</option>
+                                <?php
+                                    if (isset($countries)){
+                                        foreach ($countries as $country => $row) {
+                                            echo '<option value="'.$row->idCountry.'">'.$row->nameCountry.'</option>';
+                                        }
+                                    }
+                                ?>
                               </select>
-                           </div> 
-                          </div> 
-                          <div id="divAdd" class="col-md-3">
+                           </div>
+                          </div>
+                          <div class="col-md-3">
 
-                             
+
                             <div class="input-group ">
-                               <input id="nameGall" type="text" class="form-control" placeholder="Name" required>
+                               <input id="nameState" type="text" class="form-control" placeholder="Name" required>
                                      <span class="input-group-btn">
-                                      <button id="addGall" onclick="addGall()"  class="btn btn-success" type="button">Add</button>
+                                      <button id="addState" onclick="addState()"  class="btn btn-success" type="button">Add</button>
                                      </span>
 
                             </div><!-- /input-group -->
                         </div>
+                        </div>
                         <div id="alertSuccess" class="col-md-2 alert hide alert-success alert-dismissible" style="padding: 6px; margin-bottom: 0px;" role="alert">
-                          <strong>Successful!</strong> Gall successfully added.
+                          <strong>Successful!</strong> State successfully added.
                         </div>
 
                         <div id="alertDanger" class="col-md-3 hide alert alert-danger alert-dismissible" style="padding: 6px;margin-bottom: 0px;" role="alert">
@@ -51,24 +54,26 @@
                         <div class="panel-body">
 
                             <div class="table-responsive" style="width:480px">
-                                <table class="table table-striped table-bordered"  id="dataTableGalls">
+                                <table class="table table-striped table-bordered"  id="dataTableStates">
                                     <thead>
                                         <tr class="odd gradeX">
                                             <th>Name</th>
-                                             <th style="width:110px" >Actions</th>
+                                            <th>Country</th>
+                                            <th style="width:110px" >Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                           if ($datos!=null){
+                                           if (isset($datos)){
+                                           if ($datos !=""){
                                            foreach ($datos as $result => $row) {
-                                              
                                               echo '<tr class="even gradeC">';
                                               echo '<td id=td_'.$row->idState.'>' .$row->nameState. '</td>';
-                                              echo '<td id='.$row->idState.' ><a id=edit_'.$row->idState.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idState.');"> Edit</a>  |
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteGall('.$row->idState.');" > Delete</a>
+                                              echo '<td id=tdc_'.$row->idState.'>' .$row->nameCountry. '</td>';
+                                              echo '<td id='.$row->idState.' ><a id=edit_'.$row->idState.' class="Edit fa fa-edit" href="javascript:editState('.$row->idState.','.$row->idCountry.');"> Edit</a>  |
+                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteState('.$row->idState.');" > Delete</a>
                                                     </tr>';
-                                           }
+                                           }}
                                            }
                                         ?>
 

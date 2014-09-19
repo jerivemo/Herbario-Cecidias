@@ -5,9 +5,15 @@ $(document).ready(function() {
     });
 
     function showAdd(){
-          $('#divAdd').hide("slow");
+          if($('#divAdd').is(':visible'))
+          {
+            $('#divAdd').hide("slow");
+          }else if ($('#divAdd').is(':hidden')){
+
           $('#divAdd').show("slow");
+          }
     }
+
 
     function addGall(){
       $( "#alertSuccess" ).addClass( "hide" );

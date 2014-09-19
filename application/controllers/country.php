@@ -75,6 +75,17 @@ class Country extends CI_Controller {
 
     }
 
+    public function getCountries()
+    {
+        //if(!$this->input->is_ajax_request()){
+          //  show_404();
+        //}else{
+            $this->load->model('country_model');
+            $result= $this->country_model->getCountries();
+            echo json_encode ($result);
+        //}
+    }
+
 
 }
 
