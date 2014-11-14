@@ -68,8 +68,17 @@ class Main extends CI_Controller {
          $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
          $data['collectionResults']=count($data['list']);
          $this->load->view('main/search',$data);
+        } else {
+            $this->load->model('searchs_model');
+            $data['list']=$this->searchs_model->getCollectionByPlantsInfo($family,$gender, $specie, $state);
+            //Cambiar por Mostrar ventana con no resultados
+            if ($data['list']==false){
+                show_404();
+            }
+            $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
+            $data['collectionResults']=count($data['list']);
+            $this->load->view('main/search',$data);
         }
-
     }
 
     private function _searchByOrganismInfo($order,$family,$gender,$specie){
@@ -78,6 +87,16 @@ class Main extends CI_Controller {
          $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
          $data['collectionResults']=count($data['list']);
          $this->load->view('main/search',$data);
+        } else {
+            $this->load->model('searchs_model');
+            $data['list']=$this->searchs_model->getCollectionByOrganismInfo($order, $family,$gender, $specie);
+            //Cambiar por Mostrar ventana con no resultados
+            if ($data['list']==false){
+                show_404();
+            }
+            $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
+            $data['collectionResults']=count($data['list']);
+            $this->load->view('main/search',$data);
         }
     }
 
