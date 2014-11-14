@@ -1,6 +1,13 @@
-<div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/Gall"> Galls</a></legend>
-
+<section class="content-header">
+    <h1>Galls<small>View</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row" style="margin-right:0px;margin-left: 0px">      <!-- Form Name -->
       <div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
@@ -35,11 +42,13 @@
 
 
                         </div>
-                        <hr>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-
-                            <div class="table-responsive" style="width:480px">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List of Galls</h3>
+                                </div><!-- /.box-header -->
+                            <div class="box-body table-responsive" >
                                 <table class="table table-striped table-bordered"  id="dataTableGalls">
                                     <thead>
                                         <tr class="odd gradeX">
@@ -48,22 +57,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                           if ($datos!=null){
-                                           foreach ($datos as $result => $row) {
-                                              echo '<tr class="even gradeC">';
-                                              echo '<td id=td_'.$row->idGall.'>' .$row->gallName. '</td>';
-                                              echo '<td id='.$row->idGall.' ><a id=edit_'.$row->idGall.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idGall.');"> Edit</a>  |
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteGall('.$row->idGall.');" > Delete</a>
-                                                    </tr>';
-                                           }
-                                           }
-                                        ?>
+                                    <?php
+                                     if ($datos!=null){
+                                      foreach ($datos as $result => $row) {
+                                        echo '<tr class="even gradeC">';
+                                        echo '<td id=td_'.$row->idGall.'>' .$row->gallName. '</td>';
+                                        echo '<td id='.$row->idGall.' ><a id=edit_'.$row->idGall.' class="Edit fa fa-edit" href="javascript:editGall('.$row->idGall.');"> Edit</a>  | <a class="Delete fa fa-trash-o" href="javascript:deleteGall('.$row->idGall.');" > Delete</a></tr>';
+                                      }
+                                    }
+                                    ?>
 
                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -90,3 +98,5 @@
                             </div>
                             <!-- /.modal -->
 
+
+</section><!-- /.content -->

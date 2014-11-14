@@ -75,6 +75,17 @@ class Family extends CI_Controller {
 
     }
 
+     public function getFamilies()
+    {
+        if(!$this->input->is_ajax_request()){
+            show_404();
+        }else{
+            $this->load->model('family_model');
+            $result= $this->family_model->getFamilies();
+            echo json_encode ($result);
+        }
+    }
+
 
 }
 

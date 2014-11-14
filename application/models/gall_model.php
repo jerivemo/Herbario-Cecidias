@@ -6,14 +6,14 @@ class Gall_model extends  CI_Model {
         parent::__construct();
         $this->load->database();
     }
-    
+
      //Add a new gall
      public function addGall($nameGall)
     {
-      
+
       $nameGall = str_replace("%20"," ",$nameGall);
       $data = array( 'gallName' => $nameGall);
-      $result = $this->db->insert('gall', $data); 
+      $result = $this->db->insert('gall', $data);
       if($result)
       {
         $id=$this->db->insert_id();
@@ -27,7 +27,17 @@ class Gall_model extends  CI_Model {
    //Return all galls
    function getGalls(){
       $query = $this->db->get('gall');
-      if($query->num_rows() > 0){    
+      if($query->num_rows() > 0){
+         return $query->result();
+      }else
+      {
+         return false;
+       }
+   }
+
+   function getInfoGall($idGall){
+      $query =  $this->db->query("select gallName FROM gall where idGall='".$idGall."'");
+      if($query->num_rows() > 0){
          return $query->result();
       }else
       {
@@ -54,14 +64,14 @@ class Gall_model extends  CI_Model {
    function deleteGall($id){
     //$result = $this->db->delete('gall', array('idGall' => $id));
     $this->db->where('idGall', $id);
-    $result = $this->db->delete('gall');  
+    $result = $this->db->delete('gall');
     if($result)
       {
         return true;
       }else
       {
         return false;
-      
+
       }
     }
 }

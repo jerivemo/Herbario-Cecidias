@@ -1,7 +1,8 @@
 $(document).ready(function() {
         $('#dataTableCountries').dataTable();
-
-            $('#divAdd').hide();
+        $('#divAdd').hide();
+       // $( "#optCountry" ).addClass( "active" );
+        //$( "#menuLocations" ).addClass( "in" );
     });
 
     /**

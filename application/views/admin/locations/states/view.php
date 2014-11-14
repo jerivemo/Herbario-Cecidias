@@ -1,10 +1,16 @@
-<div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/State"> States</a></legend>
-
-      <div class="panel panel" style="width=100">
+<section class="content-header">
+    <h1>States<small>View</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+<div class="row" style="margin-right:0px;margin-left: 0px" >
+      <div class="panel panel" style="width=100px;margin-right:0px;margin-left: 0px">
                         <div class="panel-heading">
 
-                       <div class="row">
+                       <div class="row" >
 
 
                         <div class="col-md-1"><a href="javascript:showAdd();" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
@@ -49,11 +55,15 @@
 
 
                         </div>
-                        <hr>
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
-                            <div class="table-responsive" style="width:480px">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List of States</h3>
+                                </div><!-- /.box-header -->
+                            <div class="box-body table-responsive" >
                                 <table class="table table-striped table-bordered"  id="dataTableStates">
                                     <thead>
                                         <tr class="odd gradeX">
@@ -80,10 +90,12 @@
                                     </tbody>
                                 </table>
                             </div>
+                          </div>
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
-                    </div>
+
+</div>
 </div>
 
                             <!-- Modal -->
@@ -106,5 +118,6 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+</section><!-- /.content -->
 
 

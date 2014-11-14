@@ -1,7 +1,14 @@
-<div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/OrganismOrder/">Taxonomies / Insects / Orders</a></legend>
-
-      <div class="panel panel" style="width=100"
+<section class="content-header">
+    <h1>Orders<small>Insects | View</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row" style="margin-right:0px;margin-left: 0px">
+           <div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
                        <div class="row">
@@ -28,11 +35,14 @@
                         </div>
                        </div>
                        </div>
-                        <hr>
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-
-                            <div class="table-responsive" style="width:480px">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List of Orders</h3>
+                                </div><!-- /.box-header -->
+                            <div class="box-body table-responsive" >
                                 <table class="table table-striped table-bordered"  id="dataTableOrders">
                                     <thead>
                                         <tr class="odd gradeX">
@@ -56,6 +66,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                          </div>
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
@@ -82,3 +93,4 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+</section><!-- /.content -->

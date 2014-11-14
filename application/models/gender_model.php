@@ -13,17 +13,24 @@ class Gender_model extends  CI_Model {
       */
     public function addGender($idFamily, $nameGender)
     {
-
       $nameGender = str_replace("%20"," ",$nameGender);
-      $data = array('idFamily' => $idFamily,'genderName' => $nameGender);
-      $result = $this->db->insert('gender', $data);
-      if($result)
-      {
-        $id=$this->db->insert_id();
-        return array('result'  => 'true', 'id' => $id);
-      }else
-      {
+      $this->db->select('idGender');
+      $this->db->where('idFamily', $idFamily);
+      $this->db->where('genderName', $nameGender);
+      $query = $this->db->get('gender');
+      if($query->num_rows() > 0){
         return array('result' => false);
+      }else{
+          $data = array('idFamily' => $idFamily,'genderName' => $nameGender);
+          $result = $this->db->insert('gender', $data);
+          if($result)
+          {
+            $id=$this->db->insert_id();
+            return array('result'  => 'true', 'id' => $id);
+          }else
+          {
+            return array('result' => false);
+          }
       }
     }
 
@@ -31,8 +38,18 @@ class Gender_model extends  CI_Model {
     * [getGenders Get all records from Gender]
     * @return [Array-False] [Return a array with all Genders register in the data base]
     */
-   function getGenders(){
-      $query = $this->db->get('gender');
+   function getGenders($idFamily){
+      $query =  $this->db->query("select idGender, genderName from gender where idFamily='".$idFamily."'");
+      if($query->num_rows() > 0){
+         return $query->result();
+      }else
+      {
+         return false;
+       }
+   }
+
+   function getInfoGender($idGender){
+      $query =  $this->db->query("select genderName FROM gender where idGender='".$idGender."'");
       if($query->num_rows() > 0){
          return $query->result();
       }else
@@ -48,9 +65,7 @@ class Gender_model extends  CI_Model {
    function getGendersJoinFamilies(){
 
     $query =  $this->db->query('select g.idGender, g.idFamily, g.genderName ,f.familyName FROM gender as g inner join family as f on g.idFamily=f.idFamily');
-
       if($query->num_rows() > 0){
-
          return $query->result();
       }else
       {
@@ -67,16 +82,25 @@ class Gender_model extends  CI_Model {
     * @return [Boolean]       [Edit result]
     */
    function editGender($id,$idFamily,$name){
-    $name = str_replace("%20"," ",$name);
-    $data = array('idFamily' => $idFamily,'genderName' => $name);
-    $this->db->where('idGender', $id);
-    $result = $this->db->update('gender', $data);
-    if($result)
-      {
-        return true;
-      }else
-      {
+      $name = str_replace("%20"," ",$name);
+      $this->db->select('idGender');
+      $this->db->where('idFamily', $idFamily);
+      $this->db->where('genderName', $name);
+      $query = $this->db->get('gender');
+      if($query->num_rows() > 0){
         return false;
+      }else{
+          $name = str_replace("%20"," ",$name);
+          $data = array('idFamily' => $idFamily,'genderName' => $name);
+          $this->db->where('idGender', $id);
+          $result = $this->db->update('gender', $data);
+          if($result)
+            {
+              return true;
+            }else
+            {
+              return false;
+            }
       }
     }
 

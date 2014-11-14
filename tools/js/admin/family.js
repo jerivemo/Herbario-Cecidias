@@ -1,8 +1,10 @@
 $(document).ready(function() {
         $('#dataTableFamilies').dataTable();
-
-            $('#divAdd').hide();
-    });
+        $('#divAdd').hide();
+       // $( "#optFamily" ).addClass( "active" );
+       // $( "#menuTaxonomies" ).addClass( "in" );
+       // $( "#menuPlants" ).addClass( "in" );
+});
 
     /**
      * [showAdd show Add Panel]

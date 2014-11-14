@@ -45,6 +45,7 @@ class Person extends CI_Controller {
             }
     }
 
+
     //Edit the Person Name.
     public function editPerson($id,$name)
     {

@@ -73,6 +73,21 @@ class OrganismOrder extends CI_Controller {
 
     }
 
+ //Get states by id orders.
+    public function getOrders()
+    {
+        if(!$this->input->is_ajax_request()){
+                  show_404();
+            }
+           else {
+                    $this->load->model('organismorder_model');
+                    $result=$this->organismorder_model->getOrders();
+                     $json = json_encode($result);
+                    echo $json;
+            }
+
+    }
+
 
 }
 

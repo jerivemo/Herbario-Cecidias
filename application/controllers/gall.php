@@ -17,7 +17,7 @@ class Gall extends CI_Controller {
         $this->load->view('admin/head');
         $this->load->view('admin/header');
         $this->load->view('admin/galls/view',$data);
-        $this->load->view('admin/footer');
+        $this->load->view('admin/galls/footer');
 
     }
 

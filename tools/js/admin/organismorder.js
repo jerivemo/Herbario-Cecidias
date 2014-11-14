@@ -1,7 +1,9 @@
 $(document).ready(function() {
         $('#dataTableOrders').dataTable();
-
-            $('#divAdd').hide();
+        $('#divAdd').hide();
+       // $( "#optOrgOrder" ).addClass( "active" );
+       // $( "#menuTaxonomies" ).addClass( "in" );
+       // $( "#menuInsects" ).addClass( "in" );
     });
 
     /**

@@ -1,5 +1,5 @@
 <?php
-class OrganimsFamily_model extends  CI_Model {
+class OrganismFamily_model extends  CI_Model {
 
     function __construct()
     {
@@ -13,17 +13,24 @@ class OrganimsFamily_model extends  CI_Model {
       */
     public function addFamily($idOrder, $nameFamily)
     {
-
       $nameFamily = str_replace("%20"," ",$nameFamily);
-      $data = array('idOrder' => $idOrder,'familyName' => $nameFamily);
-      $result = $this->db->insert('organismfamily', $data);
-      if($result)
-      {
-        $id=$this->db->insert_id();
-        return array('result'  => 'true', 'id' => $id);
-      }else
-      {
+      $this->db->select('idFamily');
+      $this->db->where('idOrder', $idOrder);
+      $this->db->where('familyName', $nameFamily);
+      $query = $this->db->get('organismfamily');
+      if($query->num_rows() > 0){
         return array('result' => false);
+      }else{
+          $data = array('idOrder' => $idOrder,'familyName' => $nameFamily);
+          $result = $this->db->insert('organismfamily', $data);
+          if($result)
+          {
+            $id=$this->db->insert_id();
+            return array('result'  => 'true', 'id' => $id);
+          }else
+          {
+            return array('result' => false);
+          }
       }
     }
 
@@ -31,8 +38,8 @@ class OrganimsFamily_model extends  CI_Model {
     * [getFamilies Get all records from Family]
     * @return [Array-False] [Return a array with all Familys register in the data base]
     */
-   function getFamilies(){
-      $query = $this->db->get('organismfamily');
+   function getFamilies($idOrder){
+      $query =  $this->db->query("select idFamily, familyName from organismfamily where idOrder='".$idOrder."'");
       if($query->num_rows() > 0){
          return $query->result();
       }else
@@ -47,8 +54,7 @@ class OrganimsFamily_model extends  CI_Model {
  */
    function getFamiliesJoinOrders(){
 
-    $query =  $this->db->query('select f.idFamily, f.idOrder, f.familyName ,o.orderName FROM organismfamily as f inner join organismorder as o on f.idFamily=o.idFamily');
-
+    $query =  $this->db->query('select f.idFamily, f.idOrder, f.familyName ,o.orderName FROM organismfamily as f inner join organismorder as o on f.idOrder=o.idOrder');
       if($query->num_rows() > 0){
 
          return $query->result();
@@ -67,16 +73,24 @@ class OrganimsFamily_model extends  CI_Model {
     * @return [Boolean]       [Edit result]
     */
    function editFamily($id,$idOrder,$name){
-    $name = str_replace("%20"," ",$name);
-    $data = array('idOrder' => $idOrder,'familyName' => $name);
-    $this->db->where('idFamily', $id);
-    $result = $this->db->update('organismfamily', $data);
-    if($result)
-      {
-        return true;
-      }else
-      {
+      $name = str_replace("%20"," ",$name);
+      $this->db->select('idFamily');
+      $this->db->where('idOrder', $idOrder);
+      $this->db->where('familyName', $name);
+      $query = $this->db->get('organismfamily');
+      if($query->num_rows() > 0){
         return false;
+      }else{
+          $data = array('idOrder' => $idOrder,'familyName' => $name);
+          $this->db->where('idFamily', $id);
+          $result = $this->db->update('organismfamily', $data);
+          if($result)
+            {
+              return true;
+            }else
+            {
+              return false;
+            }
       }
     }
 

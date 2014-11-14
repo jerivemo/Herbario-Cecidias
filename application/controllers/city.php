@@ -32,11 +32,13 @@ class City extends CI_Controller {
     }
 
     //create a new City
-    function createCity($idState,$name){
+    function createCity(){
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $idState = $this->input->post('idState');
+                    $name = $this->input->post('name');
                     $this->load->model('city_model');
                     $result=$this->city_model->addCity($idState,$name);
                     $json = json_encode($result);
@@ -45,12 +47,15 @@ class City extends CI_Controller {
     }
 
     //Edit the City Name.
- function editCity($id,$idState,$name)
+ function editCity()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $idState = $this->input->post('idState');
+                    $name = $this->input->post('name');
                     $this->load->model('city_model');
                     $result=$this->city_model->editCity($id,$idState,$name);
                     echo $result;
@@ -60,15 +65,31 @@ class City extends CI_Controller {
 
 
     //Delete the City Name.
-    public function deleteCity($id)
+    public function deleteCity()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('idCity');
                     $this->load->model('city_model');
                     $result=$this->city_model->deleteCity($id);
                     echo $result;
+            }
+
+    }
+
+            //Get Cities by idState
+    public function getcities()
+    {
+        if(!$this->input->is_ajax_request()){
+                  show_404();
+            }
+           else {   $idState = $this->input->post('idState');
+                    $this->load->model('city_model');
+                    $result=$this->city_model->getCities($idState);
+                    $json = json_encode($result);
+                    echo $json;
             }
 
     }

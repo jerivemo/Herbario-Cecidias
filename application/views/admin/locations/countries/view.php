@@ -1,7 +1,15 @@
-<div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/Country">Countries</a></legend>
 
-      <div class="panel panel" style="width=100"
+<section class="content-header">
+    <h1>Countries<small>View</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="row" style="margin-right:0px;margin-left: 0px">
+<div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
                        <div class="row">
@@ -26,36 +34,38 @@
                         </div>
                        </div>
                        </div>
-                        <hr>
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-
-                            <div class="table-responsive" style="width:480px">
-                                <table class="table table-striped table-bordered"  id="dataTableCountries">
-                                    <thead>
-                                        <tr class="odd gradeX">
-                                            <th>Name</th>
-                                             <th style="width:110px" >Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                           if ($datos!=null){
-                                           foreach ($datos as $result => $row) {
-                                              echo '<tr class="even gradeC">';
-                                              echo '<td id=td_'.$row->idCountry.'>' .$row->nameCountry. '</td>';
-                                              echo '<td id='.$row->idCountry.' ><a id=edit_'.$row->idCountry.' class="Edit fa fa-edit" href="javascript:editCountry('.$row->idCountry.');"> Edit</a>  |
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteCountry('.$row->idCountry.');" > Delete</a>
-                                                    </tr>';
-                                           }
-                                           }
-                                        ?>
-
-                                    </tbody>
+                          <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List of Countries</h3>
+                                </div><!-- /.box-header -->
+                          <div class="box-body table-responsive">
+                          <table class="table table-striped table-bordered"  id="dataTableCountries">
+                            <thead>
+                              <tr class="odd gradeX">
+                                <th>Name</th>
+                                <th style="width:110px" >Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                              if ($datos!=null){
+                                foreach ($datos as $result => $row) {
+                                  echo '<tr class="even gradeC">';
+                                  echo '<td id=td_'.$row->idCountry.'>' .$row->nameCountry. '</td>';
+                                  echo '<td id='.$row->idCountry.' ><a id=edit_'.$row->idCountry.' class="Edit fa fa-edit" href="javascript:editCountry('.$row->idCountry.');"> Edit</a>  | <a class="Delete fa fa-trash-o" href="javascript:deleteCountry('.$row->idCountry.');" > Delete</a></tr>';
+                                }
+                              }
+                            ?>
+                            </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
+                    </div>
+
                         <!-- /.panel-body -->
                     </div>
 </div>
@@ -80,3 +90,4 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+</section><!-- /.content -->

@@ -6,17 +6,17 @@ class Country_model extends  CI_Model {
         parent::__construct();
         $this->load->database();
     }
-    
+
      /**
       * [addCountry Add a new record in country]
       * @param [String] $nameCountry [Country Name]
       */
     public function addCountry($nameCountry)
     {
-      
+
       $nameCountry = str_replace("%20"," ",$nameCountry);
       $data = array( 'nameCountry' => $nameCountry);
-      $result = $this->db->insert('country', $data); 
+      $result = $this->db->insert('country', $data);
       if($result)
       {
         $id=$this->db->insert_id();
@@ -33,7 +33,17 @@ class Country_model extends  CI_Model {
     */
    function getCountries(){
       $query = $this->db->get('country');
-      if($query->num_rows() > 0){    
+      if($query->num_rows() > 0){
+         return $query->result();
+      }else
+      {
+         return false;
+       }
+   }
+
+    function getInfoCountry($idCountry){
+      $query =  $this->db->query("select nameCountry FROM country where idCountry='".$idCountry."'");
+      if($query->num_rows() > 0){
          return $query->result();
       }else
       {
@@ -69,14 +79,14 @@ class Country_model extends  CI_Model {
    function deleteCountry($id){
     //$result = $this->db->delete('tabla', array('id' => $id));
     $this->db->where('idCountry', $id);
-    $result = $this->db->delete('country');  
+    $result = $this->db->delete('country');
     if($result)
       {
         return true;
       }else
       {
         return false;
-      
+
       }
     }
 }

@@ -59,7 +59,7 @@ class State extends CI_Controller {
 
     }
 
-        //Edit the State Name.
+        //Get states by id country.
     public function getStates()
     {
         if(!$this->input->is_ajax_request()){
@@ -68,7 +68,8 @@ class State extends CI_Controller {
            else {   $idCountry = $this->input->post('idCountry');
                     $this->load->model('state_model');
                     $result=$this->state_model->getStates($idCountry);
-                    echo $result;
+                     $json = json_encode($result);
+                    echo $json;
             }
 
     }

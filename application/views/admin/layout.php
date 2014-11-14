@@ -54,8 +54,8 @@
                 <a class="navbar-brand" href="index.html">Herbario Cecidias Admin </a>
             </div>
             <!-- /.navbar-header -->
-            
-            <!-- /.navbar-top-links LogOut--> 
+
+            <!-- /.navbar-top-links LogOut-->
             <ul class="nav navbar-top-links navbar-right">
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -81,7 +81,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            
+
                             <!-- /input-group -->
                         </li>
                         <li>
@@ -201,10 +201,10 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="countryName">Gall</label>  
+  <label class="col-md-1 control-label" for="countryName">Gall</label>
   <div class="col-md-5">
   <input id="countryName" name="countryName" type="text" placeholder="Name" class="form-control input-md" required=""  oninvalid="setCustomValidity('caracter no valido')">
-  <span class="help-block">* Required</span>  
+  <span class="help-block">* Required</span>
   </div>
 </div>
 

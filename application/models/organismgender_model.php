@@ -1,5 +1,5 @@
 <?php
-class OrganimsGender_model extends  CI_Model {
+class OrganismGender_model extends  CI_Model {
 
     function __construct()
     {
@@ -13,17 +13,24 @@ class OrganimsGender_model extends  CI_Model {
       */
     public function addGender($idFamily, $nameGender)
     {
-
       $nameGender = str_replace("%20"," ",$nameGender);
-      $data = array('idFamily' => $idFamily,'genderName' => $nameGender);
-      $result = $this->db->insert('organismgender', $data);
-      if($result)
-      {
-        $id=$this->db->insert_id();
-        return array('result'  => 'true', 'id' => $id);
-      }else
-      {
+      $this->db->select('idGender');
+      $this->db->where('idFamily', $idFamily);
+      $this->db->where('genderName', $nameGender);
+      $query = $this->db->get('organismgender');
+      if($query->num_rows() > 0){
         return array('result' => false);
+      }else{
+          $data = array('idFamily' => $idFamily,'genderName' => $nameGender);
+          $result = $this->db->insert('organismgender', $data);
+          if($result)
+          {
+            $id=$this->db->insert_id();
+            return array('result'  => 'true', 'id' => $id);
+          }else
+          {
+            return array('result' => false);
+          }
       }
     }
 
@@ -31,8 +38,8 @@ class OrganimsGender_model extends  CI_Model {
     * [getGenders Get all records from Gender]
     * @return [Array-False] [Return a array with all Genders register in the data base]
     */
-   function getGenders(){
-      $query = $this->db->get('organismgender');
+   function getGenders($idFamily){
+    $query=$this->db->query("select g.idGender,g.genderName FROM organismgender as g where idFamily='".$idFamily."'");
       if($query->num_rows() > 0){
          return $query->result();
       }else
@@ -47,8 +54,7 @@ class OrganimsGender_model extends  CI_Model {
  */
    function getGendersJoinFamilies(){
 
-    $query =  $this->db->query('select g.idGender, g.idFamily, g.genderName ,f.familyName FROM organismgender as g inner join organismfamily as f on g.idGender=f.idGender');
-
+    $query =  $this->db->query('select g.idGender, g.idFamily, o.idOrder, g.genderName ,f.familyName, o.orderName FROM organismgender as g inner join organismfamily as f inner join organismorder as o on g.idFamily=f.idFamily and f.idOrder=o.idOrder');
       if($query->num_rows() > 0){
 
          return $query->result();
@@ -68,15 +74,23 @@ class OrganimsGender_model extends  CI_Model {
     */
    function editGender($id,$idFamily,$name){
     $name = str_replace("%20"," ",$name);
-    $data = array('idFamily' => $idFamily,'genderName' => $name);
-    $this->db->where('idGender', $id);
-    $result = $this->db->update('organismgender', $data);
-    if($result)
-      {
-        return true;
-      }else
-      {
-        return false;
+    $this->db->select('idGender');
+    $this->db->where('idFamily', $idFamily);
+    $this->db->where('genderName', $name);
+    $query = $this->db->get('organismgender');
+    if($query->num_rows() > 0){
+       return false;
+    }else{
+        $data = array('idFamily' => $idFamily,'genderName' => $name);
+        $this->db->where('idGender', $id);
+        $result = $this->db->update('organismgender', $data);
+        if($result)
+          {
+            return true;
+          }else
+          {
+            return false;
+          }
       }
     }
 

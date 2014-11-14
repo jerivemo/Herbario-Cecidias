@@ -1,8 +1,9 @@
 $(document).ready(function() {
         $('#dataTableStates').dataTable();
-
-            $('#divAdd').hide();
-            var combo = $('#selectCountries').combobox({ id:'cboxCountVal',id2:'tboxCount',holder:'Country',val:1});
+        $('#divAdd').hide();
+        //$( "#optState" ).addClass( "active" );
+       // $( "#menuLocations" ).addClass( "in" );
+        var combo = $('#selectCountries').combobox({ id:'cboxCountVal',id2:'tboxCount',holder:'Country',val:1});
     });
 
     /**
@@ -58,7 +59,7 @@ $(document).ready(function() {
                         $('#alertSuccess').removeClass( "hide",0,callbackAddState());
                         var fila = '<tr class="even gradeC">';
                         fila+='<td id="td_'+data.id+'">'+$('#nameState').val()+'</td>';
-                        fila+='<td>'+$('#tboxCount').val()+'</td>';
+                        fila+='<td id="tdc_'+data.id+'"">'+$('#tboxCount').val()+'</td>';
                         fila+='<td id='+data.id+'><a class="Edit fa fa-edit" ';
                         fila+= 'href="javascript:editState('+data.id+','+idCountry+');"> Edit</a>  | <a class="Delete fa fa-trash-o" href="javascript:deleteState('+data.id+');" > Delete</a> </tr>';
                         $('#dataTableStates  > tbody:last').append(fila);

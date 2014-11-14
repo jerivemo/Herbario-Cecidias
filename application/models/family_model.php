@@ -41,6 +41,16 @@ class Family_model extends  CI_Model {
        }
    }
 
+   function getInfoFamily($idFamily){
+      $query =  $this->db->query("select familyName FROM family where idFamily='".$idFamily."'");
+      if($query->num_rows() > 0){
+         return $query->result();
+      }else
+      {
+         return false;
+       }
+   }
+
    /**
     * [editFamily Edit information of a family]
     * @param  [int] $id   [family ID]

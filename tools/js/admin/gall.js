@@ -1,7 +1,8 @@
 $(document).ready(function() {
         $('#dataTableGalls').dataTable();
+        $('#divAdd').hide();
+       // $( "#optGall" ).addClass( "active" );
 
-            $('#divAdd').hide();
     });
 
     function showAdd(){

@@ -1,7 +1,7 @@
 $(document).ready(function() {
         $('#dataTablePersons').dataTable();
-
-            $('#divAdd').hide();
+        $('#divAdd').hide();
+        //$( "#optPerson" ).addClass( "active" );
     });
 
     /**

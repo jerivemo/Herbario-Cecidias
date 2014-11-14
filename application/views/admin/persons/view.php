@@ -1,6 +1,13 @@
-<div class="row" style="">      <!-- Form Name -->
-      <legend> <a href="<?php echo base_url(); ?>index.php/Person"> Persons</a></legend>
 
+<section class="content-header">
+    <h1>Persons<small>View</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+<div class="row" style="margin-right:0px;margin-left: 0px">
       <div class="panel panel" style="width=100">
                         <div class="panel-heading">
 
@@ -32,11 +39,15 @@
 
 
                         </div>
-                        <hr>
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
-                            <div class="table-responsive" style="width:480px">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">List of Persons</h3>
+                                </div><!-- /.box-header -->
+                            <div class="box-body table-responsive" >
                                 <table class="table table-striped table-bordered"  id="dataTablePersons">
                                     <thead>
                                         <tr class="odd gradeX">
@@ -62,6 +73,7 @@
                             </div>
                             <!-- /.table-responsive -->
                         </div>
+                        </div>
                         <!-- /.panel-body -->
                     </div>
 </div>
@@ -86,4 +98,6 @@
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+
+</section><!-- /.content -->
 
