@@ -25,7 +25,7 @@ class Main extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('collection_model');
         if ($this->input->post('family')) {
-//            $this->load->view('main/search');
+
             $family=$this->input->post('family');
             $gender=$this->input->post('gender');
             $specie=$this->input->post('specie');
@@ -33,11 +33,13 @@ class Main extends CI_Controller {
             $this->_searchByPlantInfo($family,$gender,$specie,$state);
 
         }else if ($this->input->post('orgOrder')){
-            $this->load->view('main/search');
+
             $orgOrder=$this->input->post('orgOrder');
             $orgFamily=$this->input->post('orgFamily');
             $orgGender=$this->input->post('orgGender');
             $orgSpecie=$this->input->post('orgSpecie');
+
+            $this->_searchByOrganismInfo($orgOrder,$orgFamily,$orgGender,$orgSpecie);
 
 
         }else {
@@ -61,15 +63,22 @@ class Main extends CI_Controller {
     }
 
     private function _searchByPlantInfo($family,$gender,$specie,$state){
+        if ($family == "na" && $gender == "na" && $specie == "na" && $state = "na"){
          $data['list']=$this->collection_model->getIdCollections();
          $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
          $data['collectionResults']=count($data['list']);
          $this->load->view('main/search',$data);
+        }
 
     }
 
     private function _searchByOrganismInfo($order,$family,$gender,$specie){
-
+        if ($family == "na" && $gender == "na" && $specie == "na" && $order = "na"){
+         $data['list']=$this->collection_model->getIdCollections();
+         $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
+         $data['collectionResults']=count($data['list']);
+         $this->load->view('main/search',$data);
+        }
     }
 
     private function _getCollectionInfo($idCollection){
