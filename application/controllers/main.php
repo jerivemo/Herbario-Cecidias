@@ -38,7 +38,6 @@ class Main extends CI_Controller {
             $orgFamily=$this->input->post('orgFamily');
             $orgGender=$this->input->post('orgGender');
             $orgSpecie=$this->input->post('orgSpecie');
-
             $this->_searchByOrganismInfo($orgOrder,$orgFamily,$orgGender,$orgSpecie);
 
 
@@ -63,7 +62,7 @@ class Main extends CI_Controller {
     }
 
     private function _searchByPlantInfo($family,$gender,$specie,$state){
-        if ($family == "na" && $gender == "na" && $specie == "na" && $state = "na"){
+        if ($family == "na" && $gender == "na" && $specie == "na" && $state == "na"){
          $data['list']=$this->collection_model->getIdCollections();
          $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
          $data['collectionResults']=count($data['list']);
@@ -71,18 +70,21 @@ class Main extends CI_Controller {
         } else {
             $this->load->model('searchs_model');
             $data['list']=$this->searchs_model->getCollectionByPlantsInfo($family,$gender, $specie, $state);
+           //echo $data['list'];
             //Cambiar por Mostrar ventana con no resultados
             if ($data['list']==false){
-                show_404();
-            }
+//                show_404();
+                $this->load->view('main/notresults');
+            } else {
             $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
             $data['collectionResults']=count($data['list']);
             $this->load->view('main/search',$data);
+            }
         }
     }
 
     private function _searchByOrganismInfo($order,$family,$gender,$specie){
-        if ($family == "na" && $gender == "na" && $specie == "na" && $order = "na"){
+        if ($family == "na" && $gender == "na" && $specie == "na" && $order == "na"){
          $data['list']=$this->collection_model->getIdCollections();
          $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
          $data['collectionResults']=count($data['list']);
@@ -92,11 +94,13 @@ class Main extends CI_Controller {
             $data['list']=$this->searchs_model->getCollectionByOrganismInfo($order, $family,$gender, $specie);
             //Cambiar por Mostrar ventana con no resultados
             if ($data['list']==false){
-                show_404();
-            }
+                //show_404();
+                $this->load->view('main/notresults');
+            }else {
             $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
             $data['collectionResults']=count($data['list']);
             $this->load->view('main/search',$data);
+            }
         }
     }
 
@@ -229,7 +233,6 @@ private function _convertDMStoDecimal($deg,$min,$sec){
     $result=$deg+((($min*60)+$sec)/3600);
     return $result;
 }
-
 
 
 }

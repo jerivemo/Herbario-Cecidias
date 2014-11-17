@@ -300,55 +300,39 @@
             </div>
         </div>
     <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Country</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Country" required="required" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-success pull-right" id="btnContactUs">
-                            Send Message</button>
-                    </div>
-                </div>
-                </form>
+        <div class="col-md-6">
+            <div class="widget-contact">
+                <h3>Development</h3>
+                <address>
+                  <strong>CTEC - Centro de Transferencia Tecnológica y Educación Continua.</strong>
+                  Santa Clara, Alajuela Costa Rica.<br>
+                  <br>
+                  <abbr title="Phone">Phone:</abbr> (+506) 2401 3002 
+                </address>
+
+                <address>
+                  <strong>Developers</strong>
+                  <br>
+                  Ricardo Venegas Mora - <a>rvenegas@estudiantec.com</a>
+                  <br>
+                  Harvey M. Sandí Sánchez - <a>hsandi@estudiantec.com</a>
+                  <br>
+				  Ronny L. Bustos Jiménez - <a>rlibardo@estudiantec.com</a>
+				  <br>
+				  Fabricio Salazar Espinoza - <a>fsalazar@estudiantec.com</a>
+                </address>
+                
             </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-md-6">
             <div class="widget-contact">
-                <h5>Location</h5>
+                <h3>Herbario Cecidias</h3>
                 <address>
                   <strong>Escuela de Ciencias y Letras, Tecnológico de Costa Rica.</strong><br>
                   Santa Clara, Alajuela Costa Rica.<br>
                   <br>
-                  <abbr title="Phone">P:</abbr> (+506) 2401 0000
+                  <abbr title="Phone">Phone:</abbr> (+506) 2401 0000
                 </address>
 
                 <address>
@@ -358,10 +342,10 @@
                 <address>
                   <strong>We're on social networks</strong><br>
                         <ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="social-facebook"><a href="https://www.facebook.com/TecnologicoCostaRica" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="social-twitter"><a href="https://twitter.com/Teccr" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="social-dribble"><a href="http://www.tec.ac.cr/" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                            <li class="social-google"><a href="https://plus.google.com/u/0/111989048777965850852" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                 </address>
 
