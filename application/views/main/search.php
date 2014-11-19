@@ -37,7 +37,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/Main">
+                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/main">
                     <h1>HERBARIO CECIDIAS</h1>
                 </a>
             </div>
@@ -528,6 +528,27 @@ border-top-right-radius: 4px;">Go <span class="glyphicon glyphicon-share-alt"></
             </div>
         </div>
     </footer>
+
+                                <div class="modal fade" id="myModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        </div>
+                                        <div id="bodyModal" class="modal-body">
+                                        </div>
+                                        <div id="butonsModal" class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+
+
     <!-- Core JavaScript Files -->
     <script src="<?php echo base_url(); ?>tools/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/bootstrap.min.js"></script>
@@ -539,7 +560,7 @@ border-top-right-radius: 4px;">Go <span class="glyphicon glyphicon-share-alt"></
     <!--Search-->
     <script src="<?php echo base_url(); ?>tools/js/mainPage/search.js"></script>
 
-    <script src="<?php echo base_url(); ?>tools/js/easy-gallery-2.min.js"></script>
+
 
     <!--Gooogle Map -->
     <script

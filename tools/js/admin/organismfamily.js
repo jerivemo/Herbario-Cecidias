@@ -51,7 +51,7 @@ $(document).ready(function() {
       {
         var datos = {'idOrder': idOrder,'name': data};
         $.ajax({
-            url: site_url+'index.php/OrganismFamily/createFamily',
+            url: site_url+'index.php/organismfamily/createFamily',
             type:'POST',
             dataType: "json",
             data: datos,
@@ -106,7 +106,7 @@ $(document).ready(function() {
       }else{
           var datos={'id':id,'idOrder':idOrder,'name':data};
           $.ajax({
-                url: site_url+'index.php/OrganismFamily/editFamily/',
+                url: site_url+'index.php/organismfamily/editFamily/',
                 type:'POST',
                 data:datos,
                 success: function(output_string){
@@ -137,7 +137,7 @@ $(document).ready(function() {
 
       var texto="";
        $.ajax({
-            url: site_url+'index.php/OrganismOrder/getOrders',
+            url: site_url+'index.php/organismorder/getOrders',
             type:'POST',
             dataType: "json",
             success: function(data){
@@ -182,7 +182,7 @@ $(document).ready(function() {
         var name = $('#td_'+id).html()
         var datos = {'id':id}
         $.ajax({
-          url: site_url+'index.php/OrganismFamily/deleteFamily/',
+          url: site_url+'index.php/organismfamily/deleteFamily/',
           type:'POST',
           data:datos,
           success: function(output_string){

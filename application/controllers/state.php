@@ -33,11 +33,13 @@ class State extends CI_Controller {
     }
 
     //create a new State
-    function createState($idCountry,$name){
+    function createState(){
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $idCountry = $this->input->post('idCountry');
+                    $name = $this->input->post('name');
                     $this->load->model('state_model');
                     $result=$this->state_model->addState($idCountry,$name);
                     $json = json_encode($result);
@@ -46,12 +48,15 @@ class State extends CI_Controller {
     }
 
     //Edit the State Name.
-    public function editState($id,$idCountry,$name)
+    public function editState()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $idCountry = $this->input->post('idCountry');
+                    $name = $this->input->post('name');
                     $this->load->model('state_model');
                     $result=$this->state_model->editState($id,$idCountry,$name);
                     echo $result;
@@ -76,12 +81,13 @@ class State extends CI_Controller {
 
 
     //Delete the State Name.
-    public function deleteState($id)
+    public function deleteState()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('state_model');
                     $result=$this->state_model->deleteState($id);
                     echo $result;

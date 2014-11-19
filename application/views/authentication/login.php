@@ -14,9 +14,6 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/tools/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="<?php echo base_url(); ?>/tools/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>/tools/css/sb-admin-2.css" rel="stylesheet">
 
@@ -53,7 +50,7 @@
                                 <div class="checkbox">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="http://localhost/Herbario-Cecidias/index.php/Collection/view" class="btn btn-lg btn-success btn-block">Login</a>
+                                <a href="<?php echo base_url(); ?>index.php/collection/view" class="btn btn-lg btn-success btn-block">Login</a>
                             </fieldset>
                         </form>
                     </div>
@@ -67,12 +64,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>/tools/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?php echo base_url(); ?>/tools/js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="<?php echo base_url(); ?>/tools/js/sb-admin-2.js"></script>
 
 </body>
 

@@ -51,7 +51,7 @@ $(document).ready(function() {
       {
         var datos = {'idFamily': idFamily, 'name':data};
         $.ajax({
-            url: site_url+'index.php/Gender/createGender/',
+            url: site_url+'index.php/gender/createGender/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -106,7 +106,7 @@ $(document).ready(function() {
       }else{
           var datos = {'id':id,'idFamily':idFamily,'name':data}
           $.ajax({
-                url: site_url+'index.php/Gender/editGender/',
+                url: site_url+'index.php/gender/editGender/',
                 type:'POST',
                 data:datos,
                 success: function(output_string){
@@ -136,7 +136,7 @@ $(document).ready(function() {
     function setFamilies(id){
       var texto="";
        $.ajax({
-            url: site_url+'index.php/Family/getFamilies',
+            url: site_url+'index.php/family/getFamilies',
             type:'POST',
             dataType: "json",
             success: function(data){
@@ -183,7 +183,7 @@ $(document).ready(function() {
         var name = $('#td_'+id).html();
         var datos={'idGender':id};
         $.ajax({
-          url: site_url+'index.php/Gender/deleteGender/',
+          url: site_url+'index.php/gender/deleteGender/',
           type:'POST',
           data:datos,
           success: function(output_string){

@@ -28,7 +28,7 @@ $(document).ready(function() {
       if (id !=null){
         var info = {'idOrder':id}
         $.ajax({
-            url: site_url+'index.php/OrganismFamily/getFamilies/',
+            url: site_url+'index.php/organismfamily/getFamilies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -84,7 +84,7 @@ $(document).ready(function() {
       {
         var datos= {'idFamily':idFamily,'name':name}
         $.ajax({
-            url: site_url+'index.php/OrganismGender/createGender/',
+            url: site_url+'index.php/organismgender/createGender/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -147,7 +147,7 @@ $(document).ready(function() {
       {
         var datos= {'id':id,'idFamily':idFamily,'name':name}
         $.ajax({
-            url: site_url+'index.php/OrganismGender/editGender/',
+            url: site_url+'index.php/organismgender/editGender/',
             type:'POST',
             dataType: "json",
             data:datos,

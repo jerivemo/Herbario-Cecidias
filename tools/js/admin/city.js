@@ -27,7 +27,7 @@ $(document).ready(function() {
       if (id !=null){
         var info = {'idCountry':id}
         $.ajax({
-            url: site_url+'index.php/State/getStates/',
+            url: site_url+'index.php/state/getStates/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -83,7 +83,7 @@ $(document).ready(function() {
       {
         var datos= {'idState':idState,'name':name}
         $.ajax({
-            url: site_url+'index.php/City/createCity/',
+            url: site_url+'index.php/city/createCity/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -146,7 +146,7 @@ $(document).ready(function() {
       {
         var datos= {'id':id,'idState':idState,'name':name}
         $.ajax({
-            url: site_url+'index.php/City/editCity/',
+            url: site_url+'index.php/city/editCity/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -184,7 +184,7 @@ $(document).ready(function() {
     function setCountries(id){
       var texto="";
        $.ajax({
-            url: site_url+'index.php/Country/getCountries',
+            url: site_url+'index.php/country/getCountries',
             type:'POST',
             dataType: "json",
             success: function(data){
@@ -229,7 +229,7 @@ $(document).ready(function() {
         var name = $('#td_'+id).html();
         var datos= {'idCity':id}
         $.ajax({
-          url: site_url+'index.php/City/deleteCity/',
+          url: site_url+'index.php/city/deleteCity/',
           type:'POST',
           data:datos,
           success: function(output_string){

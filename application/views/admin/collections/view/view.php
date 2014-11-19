@@ -8,7 +8,7 @@
       <div class="panel panel" style="width=100">
                        <div class="panel-heading">
                        <div class="row">
-                       <div class="col-md-1"><a href="<?php echo base_url(); ?>index.php/Collection/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
+                       <div class="col-md-1"><a href="<?php echo base_url(); ?>index.php/collection/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
                        </div>
                        </div>
                        </div>
@@ -37,19 +37,22 @@
                                     <tbody>
                                         <?php
                                            if (isset($collection)){
-                                            foreach ($collection as $result => $row) {
-                                              echo '<tr id=tr_'.$row->idCollection.' >';
-                                              echo '<td>' .$row->collectionNumber. '</td>';
-                                              echo '<td>' .$row->familyName. '</td>';
-                                              echo '<td>' .$row->genderName. '</td>';
-                                              echo '<td>' .$row->speciesName. '</td>';
-                                              echo '<td>' .$row->nameCountry. '</td>';
-                                              echo '<td>' .$row->nameState. '</td>';
-                                              echo '<td>' .$row->nameCity. '</td>';
-                                              echo '<td ><a class="Edit fa fa-edit" href="'.base_url().'index.php/Collection/edit/'.$row->idCollection.'"> Edit</a>  |
-                                                    <a class="Delete fa fa-trash-o" href="javascript:deleteCollection('.$row->idCollection.');" > Delete</a></td>
-                                                    </tr>';
-                                           }}
+                                              if ($collection !=false){
+                                                  foreach ($collection as $result => $row) {
+                                                    echo '<tr id=tr_'.$row->idCollection.' >';
+                                                    echo '<td>' .$row->collectionNumber. '</td>';
+                                                    echo '<td>' .$row->familyName. '</td>';
+                                                    echo '<td>' .$row->genderName. '</td>';
+                                                    echo '<td>' .$row->speciesName. '</td>';
+                                                    echo '<td>' .$row->nameCountry. '</td>';
+                                                    echo '<td>' .$row->nameState. '</td>';
+                                                    echo '<td>' .$row->nameCity. '</td>';
+                                                    echo '<td ><a class="Edit fa fa-edit" href="'.base_url().'index.php/collection/edit/'.$row->idCollection.'"> Edit</a>  |
+                                                          <a class="Delete fa fa-trash-o" href="javascript:deleteCollection('.$row->idCollection.');" > Delete</a></td>
+                                                          </tr>';
+                                                 }
+                                              }
+                                            }
                                         ?>
 
                                     </tbody>

@@ -48,10 +48,12 @@ $(document).ready(function() {
          $('#nameState').focus();
       }else
       {
+        var datos = {'idCountry': idCountry, 'name':data};
         $.ajax({
-            url: site_url+'index.php/State/createState/'+idCountry+'/'+data,
+            url: site_url+'index.php/state/createState/',
             type:'POST',
             dataType: "json",
+            data:datos,
             success: function(data){
                      if(data.result)
                     {
@@ -101,9 +103,11 @@ $(document).ready(function() {
           $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditState());
           $('#editStateName').focus();
       }else{
+          var datos = {'id':id, 'idCountry': idCountry, 'name':data};
           $.ajax({
-                url: site_url+'index.php/State/editState/'+id+'/'+idCountry+'/'+data,
+                url: site_url+'index.php/state/editState/',
                 type:'POST',
+                data:datos,
                 success: function(output_string){
                         if(output_string==true)
                         {
@@ -131,7 +135,7 @@ $(document).ready(function() {
     function setCountries(id){
       var texto="";
        $.ajax({
-            url: site_url+'index.php/Country/getCountries',
+            url: site_url+'index.php/country/getCountries',
             type:'POST',
             dataType: "json",
             success: function(data){
@@ -177,8 +181,10 @@ $(document).ready(function() {
     {
         var name = $('#td_'+id).html();
         $.ajax({
-          url: site_url+'index.php/State/deleteState/'+id,
+          var datos = {'id': id};
+          url: site_url+'index.php/state/deleteState/',
           type:'POST',
+          data:datos,
           success: function(output_string){
                   if(output_string==true){
                     $("#dataTableStates").dataTable().fnDestroy();

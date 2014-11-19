@@ -24,7 +24,7 @@ $(document).ready(function() {
         $('#genders').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/Gender/getGenders/',
+            url: site_url+'index.php/gender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -57,7 +57,7 @@ $(document).ready(function() {
         $('#species').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/Species/getSpecies/',
+            url: site_url+'index.php/species/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -89,7 +89,7 @@ $(document).ready(function() {
         $('#orgFamilies').attr('disabled', 'disabled');
         var info = {'idOrder':id}
         $.ajax({
-            url: site_url+'index.php/OrganismFamily/getFamilies/',
+            url: site_url+'index.php/organismfamily/getFamilies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -125,7 +125,7 @@ $(document).ready(function() {
         $('#orgGenders').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/OrganismGender/getGenders/',
+            url: site_url+'index.php/organismgender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -158,7 +158,7 @@ $(document).ready(function() {
         $('#orgSpecies').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/OrganismSpecies/getSpecies/',
+            url: site_url+'index.php/organismspecies/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,

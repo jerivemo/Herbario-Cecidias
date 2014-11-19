@@ -27,7 +27,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<?php echo base_url();?>index.php/main/index" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -51,12 +51,12 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="<?php echo base_url();?>index.php/Collection/view">
+                            <a href="<?php echo base_url();?>index.php/collection/view">
                                 <i class="fa fa-th"></i> <span>Collections</span> <small class=""></small>
                             </a>
                         </li>
                         <li>
-                            <a id="optGall" href="<?php echo base_url();?>index.php/Gall/view" >
+                            <a id="optGall" href="<?php echo base_url();?>index.php/gall/view" >
                                 <i class="fa fa-database fa-fw"></i> <span>Galls</span> <small class=""></small>
                             </a>
                         </li>
@@ -67,9 +67,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="optCountry" href="<?php echo base_url();?>index.php/Country/view"><i class="fa fa-angle-double-right"></i> Countries</a></li>
-                                <li><a id="optState" href="<?php echo base_url();?>index.php/State/view"><i class="fa fa-angle-double-right"></i> States</a></li>
-                                <li><a id="optCity" href="<?php echo base_url();?>index.php/City/view"><i class="fa fa-angle-double-right"></i> Cities</a></li>
+                                <li><a id="optCountry" href="<?php echo base_url();?>index.php/country/view"><i class="fa fa-angle-double-right"></i> Countries</a></li>
+                                <li><a id="optState" href="<?php echo base_url();?>index.php/state/view"><i class="fa fa-angle-double-right"></i> States</a></li>
+                                <li><a id="optCity" href="<?php echo base_url();?>index.php/city/view"><i class="fa fa-angle-double-right"></i> Cities</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -79,9 +79,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="optFamily" href="<?php echo base_url();?>index.php/Family/view"><i class="fa fa-angle-double-right"></i> Families</a></li>
-                                <li><a id="optGender" href="<?php echo base_url();?>index.php/Gender/view"><i class="fa fa-angle-double-right"></i> Genders</a></li>
-                                <li><a id="optSpecies" href="<?php echo base_url();?>index.php/Species/view"><i class="fa fa-angle-double-right"></i> Species</a></li>
+                                <li><a id="optFamily" href="<?php echo base_url();?>index.php/family/view"><i class="fa fa-angle-double-right"></i> Families</a></li>
+                                <li><a id="optGender" href="<?php echo base_url();?>index.php/gender/view"><i class="fa fa-angle-double-right"></i> Genders</a></li>
+                                <li><a id="optSpecies" href="<?php echo base_url();?>index.php/species/view"><i class="fa fa-angle-double-right"></i> Species</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -90,14 +90,14 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="optOrgOrder" href="<?php echo base_url();?>index.php/OrganismOrder/view"><i class="fa fa-angle-double-right"></i> Orders</a></li>
-                                <li><a id="optOrgFamily" href="<?php echo base_url();?>index.php/OrganismFamily/view"><i class="fa fa-angle-double-right"></i> Families</a></li>
-                                <li><a id="optOrgGender" href="<?php echo base_url();?>index.php/OrganismGender/view"><i class="fa fa-angle-double-right"></i> Genders</a></li>
-                                <li><a id="optOrgSpecies" href="<?php echo base_url();?>index.php/OrganismSpecies/view"><i class="fa fa-angle-double-right"></i> Especies</a></li>
+                                <li><a id="optOrgOrder" href="<?php echo base_url();?>index.php/organismorder/view"><i class="fa fa-angle-double-right"></i> Orders</a></li>
+                                <li><a id="optOrgFamily" href="<?php echo base_url();?>index.php/organismfamily/view"><i class="fa fa-angle-double-right"></i> Families</a></li>
+                                <li><a id="optOrgGender" href="<?php echo base_url();?>index.php/organismgender/view"><i class="fa fa-angle-double-right"></i> Genders</a></li>
+                                <li><a id="optOrgSpecies" href="<?php echo base_url();?>index.php/organismspecies/view"><i class="fa fa-angle-double-right"></i> Especies</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a id="optPerson" href="<?php echo base_url();?>index.php/Person/view">
+                            <a id="optPerson" href="<?php echo base_url();?>index.php/person/view">
                                 <i class="fa fa-users"></i> <span>Collaborators</span>
                                 <small class=""></small>
                             </a>

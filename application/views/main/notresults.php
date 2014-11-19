@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/Main">
+                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/main">
                     <h1>HERBARIO CECIDIAS</h1>
                 </a>
             </div>
@@ -118,9 +118,9 @@
     <script src="<?php echo base_url(); ?>tools/js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>tools/js/custom.js"></script>
-    
 
-    
+
+
 </script>
 
 </body>

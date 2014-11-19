@@ -34,10 +34,11 @@ $(document).ready(function() {
          $('#nameCountry').focus();
       }else
       {
-
+          var datos = {'name':data};
           $.ajax({
-            url: site_url+'index.php/Country/createCountry/'+data,
+            url: site_url+'index.php/country/createCountry/',
             type:'POST',
+            data:datos,
             dataType: "json",
             success: function(data){
                     if(data.result)
@@ -73,8 +74,10 @@ $(document).ready(function() {
           $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditCountry());
           $('#editCountryName').focus();
       }else{
+          var datos = {'id': id, 'name':data};
           $.ajax({
-                url: site_url+'index.php/Country/editCountry/'+id+'/'+data,
+                url: site_url+'index.php/country/editCountry/',
+                data:datos,
                 type:'POST',
                 success: function(output_string){
                         if(output_string==true)
@@ -119,8 +122,10 @@ $(document).ready(function() {
     function deleteCountryAux(id)
     {
         var name = $('#td_'+id).html();
+        var datos = {'id': id};
         $.ajax({
-          url: site_url+'index.php/Country/deleteCountry/'+id,
+          url: site_url+'index.php/country/deleteCountry/',
+          data:datos,
           type:'POST',
           success: function(output_string){
                   if(output_string==true){

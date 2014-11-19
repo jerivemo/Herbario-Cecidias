@@ -64,9 +64,13 @@ class Main extends CI_Controller {
     private function _searchByPlantInfo($family,$gender,$specie,$state){
         if ($family == "na" && $gender == "na" && $specie == "na" && $state == "na"){
          $data['list']=$this->collection_model->getIdCollections();
-         $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
-         $data['collectionResults']=count($data['list']);
-         $this->load->view('main/search',$data);
+         if ($data['list']==false){
+                $this->load->view('main/notresults');
+            } else {
+                $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
+                $data['collectionResults']=count($data['list']);
+                $this->load->view('main/search',$data);
+            }
         } else {
             $this->load->model('searchs_model');
             $data['list']=$this->searchs_model->getCollectionByPlantsInfo($family,$gender, $specie, $state);
@@ -86,9 +90,13 @@ class Main extends CI_Controller {
     private function _searchByOrganismInfo($order,$family,$gender,$specie){
         if ($family == "na" && $gender == "na" && $specie == "na" && $order == "na"){
          $data['list']=$this->collection_model->getIdCollections();
-         $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
-         $data['collectionResults']=count($data['list']);
-         $this->load->view('main/search',$data);
+         if ($data['list']==false){
+                $this->load->view('main/notresults');
+            } else {
+                $data['collectionInfo']=$this->_getCollectionInfo($data['list'][0]->idCollection);
+                $data['collectionResults']=count($data['list']);
+                $this->load->view('main/search',$data);
+            }
         } else {
             $this->load->model('searchs_model');
             $data['list']=$this->searchs_model->getCollectionByOrganismInfo($order, $family,$gender, $specie);
@@ -162,7 +170,7 @@ class Main extends CI_Controller {
     private function _coordinatesToLatLong($sCadena){
         //return array('latitud' =>  10.3633333333333 ,'longitud'=> -84.5089444444444);
         if ($sCadena=="" || strlen($sCadena) < 15){
-            return array('latitud' =>  10.3633333333333 ,'longitud'=> -84.5089444444444);
+            return array('latitud' =>  9.9980455 ,'longitud'=> -83.07558640000002);
         }
 
         $latitud="";

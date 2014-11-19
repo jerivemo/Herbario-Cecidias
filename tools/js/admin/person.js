@@ -33,10 +33,11 @@ $(document).ready(function() {
          $('#namePerson').focus();
       }else
       {
-
+          var datos = {'name':data};
           $.ajax({
-            url: site_url+'index.php/Person/createPerson/'+data,
+            url: site_url+'index.php/person/createPerson/',
             type:'POST',
+            data:datos,
             dataType: "json",
             success: function(data){
                     if(data.result)
@@ -72,9 +73,11 @@ $(document).ready(function() {
           $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditPerson());
           $('#editPersonName').focus();
       }else{
+        var datos = {'id': id, 'name':data};
           $.ajax({
-                url: site_url+'index.php/Person/editPerson/'+id+'/'+data,
+                url: site_url+'index.php/person/editPerson/',
                 type:'POST',
+                data:datos,
                 success: function(output_string){
                         if(output_string==true)
                         {
@@ -118,9 +121,11 @@ $(document).ready(function() {
     function deletePersonAux(id)
     {
         var name = $('#td_'+id).html();
+        var datos = {'id': id};
         $.ajax({
-          url: site_url+'index.php/Person/deletePerson/'+id,
+          url: site_url+'index.php/person/deletePerson/',
           type:'POST',
+          data:datos,
           success: function(output_string){
                   if(output_string==true){
                     $("#dataTablePersons").dataTable().fnDestroy();

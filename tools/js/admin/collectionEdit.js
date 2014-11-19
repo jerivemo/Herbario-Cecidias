@@ -18,7 +18,7 @@ $(document).ready(function() {
         $('#selectSpecies').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/Gender/getGenders/',
+            url: site_url+'index.php/gender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -52,7 +52,7 @@ $(document).ready(function() {
         $('#selectSpecies').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/Species/getSpecies/',
+            url: site_url+'index.php/species/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
         var info = {'idCountry':id}
         $.ajax({
-            url: site_url+'index.php/State/getStates/',
+            url: site_url+'index.php/state/getStates/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -116,7 +116,7 @@ $(document).ready(function() {
         $('#selectCities').attr('disabled', 'disabled');
         var info = {'idState':id}
         $.ajax({
-            url: site_url+'index.php/City/getCities/',
+            url: site_url+'index.php/city/getCities/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -149,7 +149,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idOrder':id}
         $.ajax({
-            url: site_url+'index.php/OrganismFamily/getFamilies/',
+            url: site_url+'index.php/organismfamily/getFamilies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -188,7 +188,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/OrganismGender/getGenders/',
+            url: site_url+'index.php/organismgender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -220,7 +220,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/OrganismSpecies/getSpecies/',
+            url: site_url+'index.php/organismspecies/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -249,7 +249,7 @@ $(document).ready(function() {
             var idPerson = $('#selectCompanions').val();
             var info = {'idCollection':idCollection, 'idPerson':idPerson}
             $.ajax({
-                url: site_url+'index.php/Collection/addCompanion/',
+                url: site_url+'index.php/collection/addCompanion/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -279,7 +279,7 @@ $(document).ready(function() {
             var idPerson = $('#selectDeterminators').val();
             var info = {'idCollection':idCollection, 'idPerson':idPerson}
             $.ajax({
-                url: site_url+'index.php/Collection/addDeterminator/',
+                url: site_url+'index.php/collection/addDeterminator/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -324,7 +324,7 @@ $(document).ready(function() {
     function deleteDeterminator(idDeterminator,name){
       var info = {'idCollection':idCollection, 'idPerson':idDeterminator}
       $.ajax({
-                url: site_url+'index.php/Collection/deleteDeterminator/',
+                url: site_url+'index.php/collection/deleteDeterminator/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -369,7 +369,7 @@ $(document).ready(function() {
     function deleteCompanion(idCompanion,name){
       var info = {'idCollection':idCollection, 'idPerson':idCompanion}
         $.ajax({
-                url: site_url+'index.php/Collection/deleteCompanion/',
+                url: site_url+'index.php/collection/deleteCompanion/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -425,7 +425,7 @@ $(document).ready(function() {
             $('#circularG2').removeClass('hide',0);
             $('#addOrganism').addClass('disabled',0);
             $.ajax({
-                url: site_url+'index.php/Collection/addOrganism/',
+                url: site_url+'index.php/collection/addOrganism/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -507,7 +507,7 @@ $(document).ready(function() {
     {
       var info = {'idCollection':idCollection, 'idOrganism':idOrganism}
         $.ajax({
-                url: site_url+'index.php/Collection/deleteOrganism/',
+                url: site_url+'index.php/collection/deleteOrganism/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -630,7 +630,7 @@ $(document).ready(function() {
             $('#circularG').removeClass('hide',0);
             $('#updateCollection').addClass('disabled',0);
             $.ajax({
-                url: site_url+'index.php/Collection/editCollection/',
+                url: site_url+'index.php/collection/editCollection/',
                 type:'POST',
                 dataType: "json",
                 data:Collection,
@@ -696,7 +696,7 @@ $(document).ready(function() {
     {
       var info = {'idCollection':idCollection}
         $.ajax({
-                url: site_url+'index.php/Collection/deleteCollection/',
+                url: site_url+'index.php/collection/deleteCollection/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -704,7 +704,7 @@ $(document).ready(function() {
                         if(data.result){
                           $('#myModalLabel').html('Information');
                           $('#bodyModal').html('<div class="alert alert-success" role="alert"><strong>Success!</strong>Collection successfully deleted</div></p>');
-                          $('#butonsModal').html( '<button type="button" class="btn btn-success" onclick="parent.location=\''+site_url+'index.php/Collection/view\'">Close</button>');
+                          $('#butonsModal').html( '<button type="button" class="btn btn-success" onclick="parent.location=\''+site_url+'index.php/collection/view\'">Close</button>');
                         }else {
                           $('#myModalLabel').html('Error');
                           $('#bodyModal').html('<div class="alert alert-danger" role="alert"><strong>Error!</strong>Problems deleting Colection</div></p>');
@@ -787,7 +787,7 @@ $(document).ready(function() {
     data = new FormData($('#upload-file-form'));
 
     $.ajax({
-        url: site_url+'index.php/Upload/index',
+        url: site_url+'index.php/upload/index',
         dataType: "json",
         data: $('#upload-file-form').serialize(),
         processData: false,
@@ -844,7 +844,7 @@ $("form#upload-file-form").submit(function(event){
   var formData = new FormData($(this)[0]);
 
   $.ajax({
-    url: site_url+'index.php/Upload/index/'+idCollection,
+    url: site_url+'index.php/upload/index/'+idCollection,
     type: 'POST',
     data: formData,
     async: false,
@@ -914,7 +914,7 @@ function deleteAuxImage(idImage,nameImage)
     {
       var info = {'idImage':idImage,'nameImage':nameImage}
         $.ajax({
-                url: site_url+'index.php/Collection/deleteImage/',
+                url: site_url+'index.php/collection/deleteImage/',
                 type:'POST',
                 dataType: "json",
                 data:info,
@@ -939,7 +939,7 @@ function deleteAuxImage(idImage,nameImage)
 function getImages(){
   var info = {'idCollection':idCollection}
   $.ajax({
-    url: site_url+'index.php/Collection/getImages/',
+    url: site_url+'index.php/collection/getImages/',
     type:'POST',
     dataType: "json",
     data:info,

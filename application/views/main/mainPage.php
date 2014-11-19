@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/Main">
+                <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/main">
                     <h1>HERBARIO CECIDIAS</h1>
                 </a>
             </div>
@@ -45,7 +45,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#service">Search</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="<?php echo base_url();?>index.php/Login">Sign in</a></li>
+        <li><a href="<?php echo base_url();?>index.php/login">Sign in</a></li>
       </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -155,7 +155,7 @@
             <div class="boxed-grey">
 
                 <div class="row">
-                 <form id="searchByPlantsInfo" action="<?php echo base_url();?>index.php/Main/search" method="post" accept-charset="utf-8">
+                 <form id="searchByPlantsInfo" action="<?php echo base_url();?>index.php/main/search" method="post" accept-charset="utf-8">
                     <div class="col-md-6">
                         <div class="form-group">
                             <h3>Plants Information</h3>
@@ -199,7 +199,7 @@
                             <?php
                                 if (isset($states)){
                                     if($states==null){
-                                        echo '<option value="no" selected="">Options not available</option>string';
+                                        echo '<option value="na" selected="">Choose One:</option>string';
                                     }else {
                                         echo '<option value="na" selected="">Choose One:</option>';
                                         foreach ($states as $state => $row) {
@@ -215,7 +215,7 @@
                     </div>
                     </form>
                     <div class="col-md-6">
-                     <form id="searchOrganismInfo" action="<?php echo base_url();?>index.php/Main/search" method="post" accept-charset="utf-8" >
+                     <form id="searchOrganismInfo" action="<?php echo base_url();?>index.php/main/search" method="post" accept-charset="utf-8" >
                         <div class="form-group">
                             <h3>Organisms Information</h3>
                         </div>
@@ -305,9 +305,10 @@
                 <h3>Development</h3>
                 <address>
                   <strong>CTEC - Centro de Transferencia Tecnológica y Educación Continua.</strong>
+                  <br>
                   Santa Clara, Alajuela Costa Rica.<br>
                   <br>
-                  <abbr title="Phone">Phone:</abbr> (+506) 2401 3002 
+                  <abbr title="Phone">Phone:</abbr> (+506) 2401 3002
                 </address>
 
                 <address>
@@ -321,7 +322,7 @@
 				  <br>
 				  Fabricio Salazar Espinoza - <a>fsalazar@estudiantec.com</a>
                 </address>
-                
+
             </div>
         </div>
 

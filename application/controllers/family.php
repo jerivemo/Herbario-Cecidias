@@ -33,12 +33,13 @@ class Family extends CI_Controller {
     }
 
     //create a new Family
-    function createFamily($name){
+    function createFamily(){
 
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $name = $this->input->post('name');
                     $this->load->model('family_model');
                     $result=$this->family_model->addFamily($name);
                     $json = json_encode($result);
@@ -47,12 +48,14 @@ class Family extends CI_Controller {
     }
 
     //Edit the Family Name.
-    public function editFamily($id,$name)
+    public function editFamily()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
                     $this->load->model('family_model');
                     $result=$this->family_model->editFamily($id,$name);
                     echo $result;
@@ -62,12 +65,13 @@ class Family extends CI_Controller {
 
 
     //Delete the Family Name.
-    public function deleteFamily($id)
+    public function deleteFamily()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('family_model');
                     $result=$this->family_model->deleteFamily($id);
                     echo $result;

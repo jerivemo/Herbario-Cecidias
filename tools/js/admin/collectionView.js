@@ -11,13 +11,12 @@
     {
       var info = {'idCollection':idCollection}
         $.ajax({
-                url: site_url+'index.php/Collection/deleteCollection/',
+                url: site_url+'index.php/collection/deleteCollection/',
                 type:'POST',
                 dataType: "json",
                 data:info,
                 success: function(data){
                         if(data.result){
-                          debugger;
                           $("#dataTableCollections").dataTable().fnDestroy();
                           $('#tr_'+idCollection).remove();
                           $("#dataTableCollections").dataTable();

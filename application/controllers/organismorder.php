@@ -31,12 +31,13 @@ class OrganismOrder extends CI_Controller {
     }
 
     //create a new OrganismOrder
-    function createOrganismOrder($name){
+    function createOrganismOrder(){
 
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $name = $this->input->post('name');
                     $this->load->model('organismorder_model');
                     $result=$this->organismorder_model->addOrder($name);
                     $json = json_encode($result);
@@ -45,12 +46,14 @@ class OrganismOrder extends CI_Controller {
     }
 
     //Edit the OrganismOrder Name.
-    public function editOrganismOrder($id,$name)
+    public function editOrganismOrder()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
                     $this->load->model('organismorder_model');
                     $result=$this->organismorder_model->editOrder($id,$name);
                     echo $result;
@@ -60,12 +63,13 @@ class OrganismOrder extends CI_Controller {
 
 
     //Delete the OrganismOrder Name.
-    public function deleteOrganismOrder($id)
+    public function deleteOrganismOrder()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('organismorder_model');
                     $result=$this->organismorder_model->deleteOrder($id);
                     echo $result;

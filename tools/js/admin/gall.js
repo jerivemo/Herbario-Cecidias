@@ -29,11 +29,12 @@ $(document).ready(function() {
          $('#nameGall').focus();
       }else
       {
-
+          var datos = {'name':data};
           $.ajax({
-            url: site_url+'index.php/Gall/createGall/'+data,
+            url: site_url+'index.php/gall/createGall/',
             type:'POST',
             dataType: "json",
+            data:datos,
             success: function(data){
                     if(data.result)
                     {
@@ -69,10 +70,11 @@ $(document).ready(function() {
          $('#editGallName').focus();
       }else
       {
-
+        var datos = {'id': id, 'name':data};
         $.ajax({
-                url: site_url+'index.php/Gall/editGall/'+id+'/'+data,
+                url: site_url+'index.php/gall/editGall/',
                 type:'POST',
+                data:datos,
                 success: function(output_string){
                         if(output_string==true)
                         {
@@ -115,9 +117,11 @@ $(document).ready(function() {
 
     function deleteGallAux(id)
     {
+         var datos = {'id': id};
          $.ajax({
-        url: site_url+'index.php/Gall/deleteGall/'+id,
+        url: site_url+'index.php/gall/deleteGall/',
         type:'POST',
+        data:datos,
         success: function(output_string){
                 if(output_string==true)
                 {

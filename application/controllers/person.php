@@ -33,11 +33,12 @@ class Person extends CI_Controller {
     }
 
     //create a new Person
-    function createPerson($name){
+    function createPerson(){
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $name = $this->input->post('name');
                     $this->load->model('person_model');
                     $result=$this->person_model->addPerson($name);
                     $json = json_encode($result);
@@ -47,12 +48,14 @@ class Person extends CI_Controller {
 
 
     //Edit the Person Name.
-    public function editPerson($id,$name)
+    public function editPerson()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
                     $this->load->model('person_model');
                     $result=$this->person_model->editPerson($id,$name);
                     echo $result;
@@ -62,12 +65,13 @@ class Person extends CI_Controller {
 
 
     //Delete the Person Name.
-    public function deletePerson($id)
+    public function deletePerson()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('person_model');
                     $result=$this->person_model->deletePerson($id);
                     echo $result;

@@ -35,10 +35,11 @@ $(document).ready(function() {
          $('#nameFamily').focus();
       }else
       {
-
+          var datos = {'name':data};
           $.ajax({
-            url: site_url+'index.php/Family/createFamily/'+data,
+            url: site_url+'index.php/family/createFamily/',
             type:'POST',
+            data:datos,
             dataType: "json",
             success: function(data){
                     if(data.result)
@@ -74,9 +75,11 @@ $(document).ready(function() {
           $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditFamily());
           $('#editFamilyName').focus();
       }else{
+          var datos = {'id': id, 'name':data};
           $.ajax({
-                url: site_url+'index.php/Family/editFamily/'+id+'/'+data,
+                url: site_url+'index.php/family/editFamily/',
                 type:'POST',
+                data:datos,
                 success: function(output_string){
                         if(output_string==true)
                         {
@@ -120,9 +123,11 @@ $(document).ready(function() {
     function deleteFamilyAux(id)
     {
         var name = $('#td_'+id).html();
+        var datos = {'id': id};
         $.ajax({
-          url: site_url+'index.php/Family/deleteFamily/'+id,
+          url: site_url+'index.php/family/deleteFamily/',
           type:'POST',
+          data:datos,
           success: function(output_string){
                   if(output_string==true){
                     $("#dataTableFamilies").dataTable().fnDestroy();

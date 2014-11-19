@@ -28,7 +28,7 @@ function goNextCollection(){
 function changeCollection(idCollection){
         var info = {'idCollection':idCollection};
         $.ajax({
-            url: site_url+'index.php/Main/getCollection/',
+            url: site_url+'index.php/main/getCollection/',
             type:'POST',
             dataType: "json",
             data:info,

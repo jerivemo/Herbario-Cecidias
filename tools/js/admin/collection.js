@@ -29,7 +29,7 @@ $(document).ready(function() {
         $('#selectSpecies').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/Gender/getGenders/',
+            url: site_url+'index.php/gender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -63,7 +63,7 @@ $(document).ready(function() {
         $('#selectSpecies').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/Species/getSpecies/',
+            url: site_url+'index.php/species/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -96,7 +96,7 @@ $(document).ready(function() {
 
         var info = {'idCountry':id}
         $.ajax({
-            url: site_url+'index.php/State/getStates/',
+            url: site_url+'index.php/state/getStates/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -127,7 +127,7 @@ $(document).ready(function() {
         $('#selectCities').attr('disabled', 'disabled');
         var info = {'idState':id}
         $.ajax({
-            url: site_url+'index.php/City/getCities/',
+            url: site_url+'index.php/city/getCities/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -160,7 +160,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idOrder':id}
         $.ajax({
-            url: site_url+'index.php/OrganismFamily/getFamilies/',
+            url: site_url+'index.php/organismfamily/getFamilies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -199,7 +199,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/OrganismGender/getGenders/',
+            url: site_url+'index.php/organismgender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -231,7 +231,7 @@ $(document).ready(function() {
         $('#selectOrgSpecies').attr('disabled', 'disabled');
         var info = {'idGender':id}
         $.ajax({
-            url: site_url+'index.php/OrganismSpecies/getSpecies/',
+            url: site_url+'index.php/organismspecies/getSpecies/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -371,7 +371,7 @@ $(document).ready(function() {
             }else {
               resultUploadImages=""
                 $.ajax({
-                url: site_url+'index.php/Collection/createCollection/',
+                url: site_url+'index.php/collection/createCollection/',
                 type:'POST',
                 dataType: "json",
                 data:Collection,
@@ -406,7 +406,7 @@ $(document).ready(function() {
 
                           $('#myModalLabel').text("Information");
                           $('#bodyModal').html(msg);
-                          $('#butonsModal').html( '<button type="button" class="btn btn-success" onclick="parent.location=\''+site_url+'index.php/Collection/add\'">Close</button>');
+                          $('#butonsModal').html( '<button type="button" class="btn btn-success" onclick="parent.location=\''+site_url+'index.php/collection/add\'">Close</button>');
                           $('#myModal').modal('show');
                         }else{
                           msg='<div class="alert alert-danger" role="alert"><strong>Error!</strong>Alredy exist a entry with this Collection Number</div>';
@@ -462,7 +462,7 @@ $("form#upload-file-form").submit(function(event){
   var formData = new FormData($(this)[0]);
 
   $.ajax({
-    url: site_url+'index.php/Upload/index/'+idCollection,
+    url: site_url+'index.php/upload/index/'+idCollection,
     type: 'POST',
     data: formData,
     async: false,

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:/Herbario-Cecidias';
+$config['base_url']	= 'http://www.ctec.tec.ac.cr/herbariocecidias';
 
 /*
 |--------------------------------------------------------------------------

@@ -33,12 +33,13 @@ class Country extends CI_Controller {
     }
 
     //create a new Country
-    function createCountry($name){
+    function createCountry(){
 
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $name = $this->input->post('name');
                     $this->load->model('country_model');
                     $result=$this->country_model->addCountry($name);
                     $json = json_encode($result);
@@ -47,12 +48,14 @@ class Country extends CI_Controller {
     }
 
     //Edit the Country Name.
-    public function editCountry($id,$name)
+    public function editCountry()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
                     $this->load->model('country_model');
                     $result=$this->country_model->editCountry($id,$name);
                     echo $result;
@@ -62,12 +65,13 @@ class Country extends CI_Controller {
 
 
     //Delete the Country Name.
-    public function deleteCountry($id)
+    public function deleteCountry()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('country_model');
                     $result=$this->country_model->deleteCountry($id);
                     echo $result;

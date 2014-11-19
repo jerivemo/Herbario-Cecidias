@@ -22,7 +22,7 @@
         <script src="<?php echo base_url(); ?>/tools/js/app.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>tools/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="<?php echo base_url(); ?>tools/js/admin/organismFamily.js"></script>
+    <script src="<?php echo base_url(); ?>tools/js/admin/organismfamily.js"></script>
 
     <script src="<?php echo base_url(); ?>/tools/js/bootstrap-combobox.js"></script>
 

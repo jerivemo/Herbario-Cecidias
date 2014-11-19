@@ -35,11 +35,12 @@ $(document).ready(function() {
          $('#nameOrder').focus();
       }else
       {
-
-          $.ajax({
-            url: site_url+'index.php/OrganismOrder/createOrganismOrder/'+data,
+        var datos = {'name':data};
+        $.ajax({
+            url: site_url+'index.php/organismorder/createOrganismOrder/',
             type:'POST',
             dataType: "json",
+            data:datos,
             success: function(data){
                     if(data.result)
                     {
@@ -74,9 +75,11 @@ $(document).ready(function() {
           $('#alertDangerEdit').removeClass( "hide",0,callbackErrorEditOrder());
           $('#editOrderName').focus();
       }else{
+        var datos = {'id':id,'name':data};
           $.ajax({
-                url: site_url+'index.php/OrganismOrder/editOrganismOrder/'+id+'/'+data,
+                url: site_url+'index.php/organismorder/editOrganismOrder/',
                 type:'POST',
+                data:datos,
                 success: function(output_string){
                         if(output_string==true)
                         {
@@ -120,8 +123,9 @@ $(document).ready(function() {
     function deleteOrderAux(id)
     {
         var name = $('#td_'+id).html();
+        var datos = {'id':id};
         $.ajax({
-          url: site_url+'index.php/OrganismOrder/deleteOrganismOrder/'+id,
+          url: site_url+'index.php/organismorder/deleteOrganismOrder/',
           type:'POST',
           success: function(output_string){
                   if(output_string==true){

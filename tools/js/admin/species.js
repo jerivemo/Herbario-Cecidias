@@ -28,7 +28,7 @@ $(document).ready(function() {
       if (id !=null){
         var info = {'idFamily':id}
         $.ajax({
-            url: site_url+'index.php/Gender/getGenders/',
+            url: site_url+'index.php/gender/getGenders/',
             type:'POST',
             dataType: "json",
             data:info,
@@ -84,7 +84,7 @@ $(document).ready(function() {
       {
         var datos= {'idGender':idGender,'name':name}
         $.ajax({
-            url: site_url+'index.php/Species/createSpecies/',
+            url: site_url+'index.php/species/createSpecies/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -147,7 +147,7 @@ $(document).ready(function() {
       {
         var datos= {'id':id,'idGender':idGender,'name':name}
         $.ajax({
-            url: site_url+'index.php/Species/editSpecies/',
+            url: site_url+'index.php/species/editSpecies/',
             type:'POST',
             dataType: "json",
             data:datos,
@@ -185,7 +185,7 @@ $(document).ready(function() {
     function setFamilies(id){
       var texto="";
        $.ajax({
-            url: site_url+'index.php/Family/getFamilies',
+            url: site_url+'index.php/family/getFamilies',
             type:'POST',
             dataType: "json",
             success: function(data){
@@ -230,7 +230,7 @@ $(document).ready(function() {
         var name = $('#td_'+id).html();
         var datos= {'idSpecies':id}
         $.ajax({
-          url: site_url+'index.php/Species/deleteSpecies/',
+          url: site_url+'index.php/species/deleteSpecies/',
           type:'POST',
           data:datos,
           success: function(output_string){

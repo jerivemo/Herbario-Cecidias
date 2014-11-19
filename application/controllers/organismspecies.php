@@ -27,8 +27,8 @@ class OrganismSpecies extends CI_Controller {
         $data['datos']=$this->organismspecies_model->getSpeciesJoinGenders();
         $this->load->view('admin/head');
         $this->load->view('admin/header');
-        $this->load->view('admin/taxonomies/insects/Species/view',$data);
-        $this->load->view('admin/taxonomies/insects/Species/footer');
+        $this->load->view('admin/taxonomies/insects/species/view',$data);
+        $this->load->view('admin/taxonomies/insects/species/footer');
     }
 
     //create a new Species

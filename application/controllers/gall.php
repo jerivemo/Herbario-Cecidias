@@ -36,12 +36,13 @@ class Gall extends CI_Controller {
     }
 
     //create a new gall
-    function createGall($name){
+    function createGall(){
 
            if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $name = $this->input->post('name');
                     $this->load->model('gall_model');
                     $result=$this->gall_model->addGall($name);
                     $json = json_encode($result);
@@ -50,12 +51,14 @@ class Gall extends CI_Controller {
     }
 
     //Edit the Gall Name.
-    public function editGall($id,$name)
+    public function editGall()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
                     $this->load->model('gall_model');
                     $result=$this->gall_model->editGall($id,$name);
                     echo $result;
@@ -65,12 +68,13 @@ class Gall extends CI_Controller {
 
 
     //Delete the Gall Name.
-    public function deleteGall($id)
+    public function deleteGall()
     {
         if(!$this->input->is_ajax_request()){
                   show_404();
             }
            else {
+                    $id = $this->input->post('id');
                     $this->load->model('gall_model');
                     $result=$this->gall_model->deleteGall($id);
                     echo $result;
