@@ -39,18 +39,23 @@
                         <h3 class="panel-title">Administration Herbario Cecidias</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" id="login" action="<?php echo base_url();?>index.php/login" method="post" accept-charset="utf-8">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" required placeholder="User Name" name="userName" type="text" autofocus value="<?php  if (isset($error)){ echo $error['user'];}else {echo "";}?>">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" required placeholder="Password" name="password" type="password" value="<?php  if (isset($error)){ echo $error['password'];}else {echo "";}?>">
                                 </div>
-                                <div class="checkbox">
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="<?php echo base_url(); ?>index.php/collection/view" class="btn btn-lg btn-success btn-block">Login</a>
+                                <?php
+                                    if (isset($error)){
+                                        if ($error['error']==true){
+                                        echo '<div class="form-group"><div class="alert alert-danger alert-dismissible" style="padding: 6px;margin-bottom: 0px;" role="alert"><strong>Error!</strong> '.$error['msgError'].'.</div></div>';
+                                        }
+                                    }
+                                ?>
+                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnLogin">
+                            Sign in</button>
                             </fieldset>
                         </form>
                     </div>

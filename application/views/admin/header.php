@@ -21,13 +21,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>User Name <i class="caret"></i></span>
+                                <span>Administrator<i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="<?php echo base_url();?>index.php/main/index" class="btn btn-default btn-flat">Sign out</a>
+                                        Administrator  |
+                                        <a href="<?php echo base_url();?>index.php/login/logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -44,7 +45,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left info">
-                            User |
+                            Administrator |
                             <a href="#"><i class="fa fa-circle text-success"></i>  Online</a>
                         </div>
                     </div>

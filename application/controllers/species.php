@@ -7,6 +7,12 @@ class Species extends CI_Controller {
      */
     public function index()
     {
+        if(!$this->session->userdata('logged_in'))
+        {
+            //If no session, redirect to login page
+            $this->load->helper('url');
+            redirect('/login','refresh');
+        }
         $this->load->helper('url');
         $this->load->model('family_model');
         $data['families']=$this->family_model->getFamilies();
@@ -20,6 +26,12 @@ class Species extends CI_Controller {
 
     public function view()
     {
+        if(!$this->session->userdata('logged_in'))
+        {
+            //If no session, redirect to login page
+            $this->load->helper('url');
+            redirect('/login','refresh');
+        }
         $this->load->helper('url');
         $this->load->model('family_model');
         $data['families']=$this->family_model->getFamilies();

@@ -109,7 +109,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
                         <h5>Escuela de Ciencias Y Letras</h5>
-                        <p class="subtitle">Area de Biologia</p>
+                        <p class="subtitle">Área de Biologia</p>
                         <strong>Investigadores:</strong>
                         <br>Omar Gatgens Boniche
                         <br>Jose Pablo Alfaro
@@ -334,11 +334,6 @@
                   Santa Clara, Alajuela Costa Rica.<br>
                   <br>
                   <abbr title="Phone">Phone:</abbr> (+506) 2401 0000
-                </address>
-
-                <address>
-                  <strong>Email</strong><br>
-                  <a href="mailto:#">email.name@example.com</a>
                 </address>
                 <address>
                   <strong>We're on social networks</strong><br>
